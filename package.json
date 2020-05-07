@@ -3,8 +3,16 @@
   "version": "0.0.1",
   "description": "kibana presenter",
   "main": "index.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "9.3.6",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
   },
   "repository": {
     "type": "git",
@@ -21,8 +29,5 @@
   "bugs": {
     "url": "https://github.com/devdjdjdj/kibana-presenter/issues"
   },
-  "homepage": "https://github.com/devdjdjdj/kibana-presenter#readme",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+  "homepage": "https://github.com/devdjdjdj/kibana-presenter#readme"
 }
