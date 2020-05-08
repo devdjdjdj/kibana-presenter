@@ -1,0 +1,48 @@
+{
+  "tabs": [
+    {
+      "name": "TabName1",
+      "data": {
+        "1": 1,
+        "2": 2
+      }
+    },
+    {
+      "name": "TabName2",
+      "data": {
+        "1": 1,
+        "2": 2
+      }
+    },
+    {
+      "name": "TabName3",
+      "data": {
+        "1": 1,
+        "2": 2
+      }
+    }
+  ],
+  "templates": [
+    {
+      "name": "TemplateName1",
+      "data": {
+        "1": 1,
+        "2": 2
+      }
+    },
+    {
+      "name": "TemplateName2",
+      "data": {
+        "1": 1,
+        "2": 2
+      }
+    },
+    {
+      "name": "TemplateName3",
+      "data": {
+        "1": 1,
+        "2": 2
+      }
+    }
+  ]
+}
