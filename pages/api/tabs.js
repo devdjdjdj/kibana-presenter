@@ -1,9 +1,9 @@
-import { getTabs, addTab} from '../../lib/controller'
-import {runMiddleware } from '../../lib/middleware'
-const morgan = require('morgan');
+import { getTabs, addTab } from '../../lib/controller'
+import { runMiddleware } from '../../lib/middleware'
+const morgan = require('morgan')
 
 export default async (req, res) => {
-  await runMiddleware(req, res, (morgan('tiny')))
+  await runMiddleware(req, res, morgan('tiny'))
   switch (req.method) {
     case 'GET':
       let allTabs = getTabs()
@@ -12,7 +12,7 @@ export default async (req, res) => {
         res.json(allTabs)
       } else {
         res.statusCode = 404
-        res.json({ 'message': "No Tabs" })
+        res.json({ message: 'No Tabs' })
       }
       break
     case 'POST':

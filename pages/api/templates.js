@@ -1,9 +1,9 @@
 import { getTemplates, addTemplate } from '../../lib/controller'
 import { runMiddleware } from '../../lib/middleware'
-const morgan = require('morgan');
+const morgan = require('morgan')
 
 export default async (req, res) => {
-  await runMiddleware(req, res, (morgan('tiny')))
+  await runMiddleware(req, res, morgan('tiny'))
   switch (req.method) {
     case 'GET':
       const allTemplates = getTemplates()
@@ -12,7 +12,7 @@ export default async (req, res) => {
         res.json(allTemplates)
       } else {
         res.statusCode = 404
-        res.json({ 'message': "No Templates" })
+        res.json({ message: 'No Templates' })
       }
       break
     case 'POST':
