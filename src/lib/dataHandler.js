@@ -4,6 +4,7 @@ const fs = require('fs')
 const dataPath = path.join(process.cwd(), 'data/data.json')
 
 function putAllData(data) {
+  console.log(dataPath)
   let fileData = JSON.stringify(data, null, 2)
   fs.writeFile(dataPath, fileData, (err) => {
     if (err) console.error(err)
@@ -11,6 +12,7 @@ function putAllData(data) {
 }
 
 export function getAllData() {
+  console.log(dataPath)
   try {
     const data = fs.readFileSync(dataPath)
     return JSON.parse(data)
