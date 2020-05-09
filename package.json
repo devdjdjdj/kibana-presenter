@@ -25,7 +25,10 @@
     "kibana",
     "dashboard",
     "scroll",
-    "tv"
+    "tv",
+    "kiosk",
+    "next",
+    "elastic"
   ],
   "author": "Devansh Jaiswal",
   "license": "Apache-2.0",
