@@ -11,6 +11,10 @@
     "pretty": "prettier --write --no-semi --single-quote \"./**/*.{js,jsx,json}\""
   },
   "dependencies": {
+    "@chakra-ui/core": "^0.7.0",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "emotion-theming": "^10.0.27",
     "morgan": "^1.10.0",
     "next": "^9.3.6",
     "react": "16.13.1",
