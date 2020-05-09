@@ -6,7 +6,7 @@ export default async (req, res) => {
   await runMiddleware(req, res, morgan('tiny'))
   switch (req.method) {
     case 'GET':
-      let allTabs = getTabs()
+      const allTabs = getTabs()
       if (allTabs.length) {
         res.statusCode = 200
         res.json(allTabs)
@@ -20,5 +20,8 @@ export default async (req, res) => {
       res.statusCode = code
       res.json(tabs)
       break
+    default:
+      res.setHeader('Allow', ['GET', 'PUT'])
+      res.status(405).end(`Method ${method} Not Allowed`)
   }
 }

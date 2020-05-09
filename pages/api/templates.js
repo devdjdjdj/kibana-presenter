@@ -20,5 +20,8 @@ export default async (req, res) => {
       res.statusCode = code
       res.json(templates)
       break
+    default:
+      res.setHeader('Allow', ['GET', 'PUT'])
+      res.status(405).end(`Method ${method} Not Allowed`)
   }
 }
