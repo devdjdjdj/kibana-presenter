@@ -28,7 +28,15 @@
     "type": "git",
     "url": "git+https://github.com/devdjdjdj/kibana-presenter.git"
   },
-  "keywords": [],
+  "keywords":[
+    "kibana",	
+    "dashboard",	
+    "scroll",	
+    "tv",	
+    "kiosk",	
+    "next",	
+    "elastic"	
+  ],
   "author": "Devansh Jaiswal",
   "license": "Apache-2.0",
   "bugs": {
