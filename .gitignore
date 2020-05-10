@@ -31,4 +31,4 @@ yarn-error.log*
 .env.production.local
 
 # data
-data/data.json
+# data/data.json
