@@ -1,7 +1,7 @@
 {
-  "name": "kibana-presenter-chakra",
+  "name": "kibana-presenter",
   "version": "0.1.0",
-  "description": "",
+  "description": "Presenter for Kibana",
   "main": "index.js",
   "private": true,
   "scripts": {
