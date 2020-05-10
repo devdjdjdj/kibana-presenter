@@ -1,8 +1,9 @@
-import { getTabs, getTemplates } from '../lib/controller'
+import { getData } from "../lib/controller";
+import { useState } from "react";
 // prettier-ignore
 import { Heading, Stack, Box, Divider, Button, Collapse, Grid } from '@chakra-ui/core'
 
-export default ({ tabs, templates }) => {
+export default ({ data }) => {
   return (
     <Grid templateColumns="1fr 8fr 1fr" templateRows="1fr 10fr">
       {/* prettier-ignore */}
@@ -12,14 +13,14 @@ export default ({ tabs, templates }) => {
         </Heading>
         <Divider />
         <Stack>
-          {tabs.map((e, i) => (
+          {data.tabs.map((e, i) => (
             <TabBox key={i} name={e.name} data={e.data} />
           ))}
         </Stack>
       </Box>
     </Grid>
-  )
-}
+  );
+};
 
 const TabBox = ({ name, data }) => {
   return (
@@ -30,12 +31,12 @@ const TabBox = ({ name, data }) => {
         </Box>
       </Box>
     </>
-  )
-}
+  );
+};
 
 function Example({ name, data }) {
-  const [show, setShow] = React.useState(false)
-  const handleToggle = () => setShow(!show)
+  const [show, setShow] = useState(false);
+  const handleToggle = () => setShow(!show);
   return (
     <>
       <Grid templateColumns="7fr 1fr 1fr">
@@ -52,11 +53,10 @@ function Example({ name, data }) {
         labore wes anderson cred nesciunt sapiente ea proident.
       </Collapse>
     </>
-  )
+  );
 }
 
 export async function getServerSideProps() {
-  const tabs = getTabs()
-  const templates = getTemplates()
-  return { props: { tabs, templates } }
+  const data = getData();
+  return { props: { data } };
 }

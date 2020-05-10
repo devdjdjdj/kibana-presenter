@@ -1,9 +1,10 @@
+import { useEffect } from "react";
 import Router from "next/router";
 import { getTabs, getTemplates } from "../lib/controller";
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/core";
 
 export default function({ tabs, templates }) {
-  React.useEffect(() => {
+  useEffect(() => {
     if (!tabs.length) {
       Router.push("/admin");
     }
