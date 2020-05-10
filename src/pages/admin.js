@@ -1,5 +1,6 @@
-import { getData } from "../lib/controller";
-import { useState } from "react";
+import { getData } from '../lib/controller'
+import { useState } from 'react'
+import { NewTab } from '../components/newTab'
 // prettier-ignore
 import { Heading, Stack, Box, Divider, Button, Collapse, Grid } from '@chakra-ui/core'
 
@@ -12,6 +13,7 @@ export default ({ data }) => {
           Admin Console
         </Heading>
         <Divider />
+        <NewTab/>
         <Stack>
           {data.tabs.map((e, i) => (
             <TabBox key={i} name={e.name} data={e.data} />
@@ -19,24 +21,24 @@ export default ({ data }) => {
         </Stack>
       </Box>
     </Grid>
-  );
-};
+  )
+}
 
 const TabBox = ({ name, data }) => {
   return (
     <>
       <Box border="1px" borderRadius={5} m={2} p={2}>
         <Box alignItems="center">
-          <Example name={name} data={data} />
+          <TabData name={name} data={data} />
         </Box>
       </Box>
     </>
-  );
-};
+  )
+}
 
-function Example({ name, data }) {
-  const [show, setShow] = useState(false);
-  const handleToggle = () => setShow(!show);
+const TabData = ({ name, data }) => {
+  const [show, setShow] = useState(false)
+  const handleToggle = () => setShow(!show)
   return (
     <>
       <Grid templateColumns="7fr 1fr 1fr">
@@ -53,10 +55,10 @@ function Example({ name, data }) {
         labore wes anderson cred nesciunt sapiente ea proident.
       </Collapse>
     </>
-  );
+  )
 }
 
 export async function getServerSideProps() {
-  const data = getData();
-  return { props: { data } };
+  const data = getData()
+  return { props: { data } }
 }

@@ -1,14 +1,14 @@
-import { useEffect } from "react";
-import Router from "next/router";
-import { getTabs, getTemplates } from "../lib/controller";
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/core";
+import { useEffect } from 'react'
+import Router from 'next/router'
+import { getTabs, getTemplates } from '../lib/controller'
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/core'
 
-export default function({ tabs, templates }) {
+export default function ({ tabs, templates }) {
   useEffect(() => {
     if (!tabs.length) {
-      Router.push("/admin");
+      Router.push('/admin')
     }
-  });
+  })
 
   return (
     <div className="container">
@@ -27,11 +27,11 @@ export default function({ tabs, templates }) {
         </TabPanels>
       </Tabs>
     </div>
-  );
+  )
 }
 
 export async function getServerSideProps() {
-  const tabs = getTabs();
-  const templates = getTemplates();
-  return { props: { tabs, templates } };
+  const tabs = getTabs()
+  const templates = getTemplates()
+  return { props: { tabs, templates } }
 }
