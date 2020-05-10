@@ -1,29 +1,23 @@
 import { getTabs, getTemplates } from '../lib/controller'
-import {
-  Heading,
-  Stack,
-  Box,
-  Divider,
-  Button,
-  Collapse,
-  Flex,
-  SimpleGrid,
-  Grid,
-} from '@chakra-ui/core'
+// prettier-ignore
+import { Heading, Stack, Box, Divider, Button, Collapse, Grid } from '@chakra-ui/core'
 
 export default ({ tabs, templates }) => {
   return (
-    <Box m={5} p={5} border="1px" borderRadius={10}>
-      <Heading my={1} pb={2}>
-        Admin Console
-      </Heading>
-      <Divider />
-      <Stack>
-        {tabs.map((e, i) => (
-          <TabBox key={i} name={e.name} data={e.data} />
-        ))}
-      </Stack>
-    </Box>
+    <Grid templateColumns="1fr 8fr 1fr" templateRows="1fr 10fr">
+      {/* prettier-ignore */}
+      <Box gridColumn={2} gridRow={2} m={5} p={5} border="1px" borderRadius={10}>
+        <Heading my={1} pb={2}>
+          Admin Console
+        </Heading>
+        <Divider />
+        <Stack>
+          {tabs.map((e, i) => (
+            <TabBox key={i} name={e.name} data={e.data} />
+          ))}
+        </Stack>
+      </Box>
+    </Grid>
   )
 }
 
@@ -45,9 +39,11 @@ function Example({ name, data }) {
   return (
     <>
       <Grid templateColumns="7fr 1fr 1fr">
-        {name}
-        <Button  ml="5" display="flex" variantColor="blue"  onClick={handleToggle}> Edit </Button>
-        <Button  ml="5" display="flex" variantColor="red" onClick={handleToggle}> Delete </Button>
+        <Box m="2"> {name} </Box>
+        {/* prettier-ignore */}
+        <Button ml="5" display="flex" variantColor="blue" onClick={handleToggle}> Edit </Button>
+        {/* prettier-ignore */}
+        <Button ml="5" display="flex" variantColor="red" onClick={handleToggle}> Delete </Button>
       </Grid>
 
       <Collapse mt={4} isOpen={show}>
