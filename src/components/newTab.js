@@ -7,7 +7,7 @@ import {
   ModalBody,
   ModalCloseButton,
   useDisclosure,
-  Button
+  Button,
 } from '@chakra-ui/core'
 
 function saveTabData(data) {
@@ -17,7 +17,7 @@ function saveTabData(data) {
 export function NewTab() {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const saveTab = () => {
-    console.log("Save Tab data")
+    console.log('Save Tab data')
     onClose()
   }
   return (
@@ -29,15 +29,15 @@ export function NewTab() {
         <ModalContent>
           <ModalHeader>New Tab</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
-            Form Data
-          </ModalBody>
+          <ModalBody>Form Data</ModalBody>
 
           <ModalFooter>
             <Button variantColor="blue" mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button variant="ghost" onClick={saveTab}>Save Tab</Button>
+            <Button variant="ghost" onClick={saveTab}>
+              Save Tab
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
