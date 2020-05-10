@@ -32,3 +32,5 @@ yarn-error.log*
 
 # data
 # data/data.json
+
+.codesandbox/workspace.json

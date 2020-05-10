@@ -1,7 +1,7 @@
 {
-  "name": "kibana-presenter",
+  "name": "kibana-presenter-chakra",
   "version": "0.1.0",
-  "description": "kibana presenter",
+  "description": "",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -28,15 +28,7 @@
     "type": "git",
     "url": "git+https://github.com/devdjdjdj/kibana-presenter.git"
   },
-  "keywords": [
-    "kibana",
-    "dashboard",
-    "scroll",
-    "tv",
-    "kiosk",
-    "next",
-    "elastic"
-  ],
+  "keywords": [],
   "author": "Devansh Jaiswal",
   "license": "Apache-2.0",
   "bugs": {
