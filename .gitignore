@@ -18,6 +18,7 @@
 # misc
 .DS_Store
 .vscode/
+/.codesandbox/
 
 # debug
 npm-debug.log*
@@ -33,4 +34,4 @@ yarn-error.log*
 # data
 # data/data.json
 
-.codesandbox/workspace.json
+
