@@ -8,9 +8,11 @@ data.json
   tabs [
     {
       name string
-      src string
-      scrollTime int (seconds) 
+      url string
+      scrollTime int (seconds)
+      
       kibana*
+        type
         filter*
         query*
       time*
