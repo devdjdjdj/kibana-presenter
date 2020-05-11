@@ -1,6 +1,6 @@
 import { getData } from '../lib/controller'
 import { useState } from 'react'
-import { NewTab } from '../components/newTab'
+import { NewTabForm } from '../components/newTabForm'
 // prettier-ignore
 import { Heading, Stack, Box, Divider, Button, Collapse, Grid } from '@chakra-ui/core'
 
@@ -13,7 +13,7 @@ export default ({ data }) => {
           Admin Console
         </Heading>
         <Divider />
-        <NewTab/>
+        <NewTabForm/>
         <Stack>
           {data.tabs.map((e, i) => (
             <TabBox key={i} name={e.name} data={e.data} />

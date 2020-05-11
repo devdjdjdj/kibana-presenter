@@ -10,16 +10,21 @@ import {
   Button,
 } from '@chakra-ui/core'
 
+import { Form } from './form'
+
 function saveTabData(data) {
   console.log(data)
 }
 
-export function NewTab() {
+export function NewTabForm() {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const saveTab = () => {
-    console.log('Save Tab data')
+  const saveTab = (name) => {
+    console.log('Save Tab name  :' + name)
     onClose()
   }
+
+  const [submit, setSubmit] = React.useState(false)
+
   return (
     <>
       <Button onClick={onOpen}>Add New Tab</Button>
@@ -29,13 +34,15 @@ export function NewTab() {
         <ModalContent>
           <ModalHeader>New Tab</ModalHeader>
           <ModalCloseButton />
-          <ModalBody>Form Data</ModalBody>
+          <ModalBody>
+            <Form sub={submit} />
+          </ModalBody>
 
           <ModalFooter>
             <Button variantColor="blue" mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button variant="ghost" onClick={saveTab}>
+            <Button form="my-form" onClick={() => setSubmit(true)}>
               Save Tab
             </Button>
           </ModalFooter>
