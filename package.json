@@ -8,7 +8,8 @@
     "dev": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
-    "pretty": "prettier --write --no-semi --single-quote \"./**/*.{js,jsx,json}\""
+    "pretty": "prettier --write --no-semi --single-quote \"./**/*.{js,jsx,json}\"",
+    "prod" : "rm src/pages/api/* && rm src/pages/admin.js && next build && git stash"
   },
   "dependencies": {
     "morgan": "^1.10.0",
