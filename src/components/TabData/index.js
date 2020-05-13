@@ -33,11 +33,8 @@ export function TabData({ index, title, data, allTabs }) {
     data.scrollTime == scrollTime
   )
 
-  const saveIsDisabled = (
-    newTitle.trim().length <= 0 ||
-    kibanaURL.trim().length <= 0 ||
-    invalidTitle
-  )
+  const saveIsDisabled =
+    newTitle.trim().length <= 0 || kibanaURL.trim().length <= 0 || invalidTitle
 
   const closeDeleteDialog = () => setDeleteDialogIsOpen(false)
   const toggleShowData = () => setShowData(!showTabData)

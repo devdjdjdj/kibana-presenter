@@ -38,6 +38,12 @@ export const Form = ({ onClose, tabData }) => {
     })
   }
 
+  const handleReset = () => {
+    setTabTitle('')
+    setKibanaURL('')
+    setScrollTime(10)
+  }
+
   const invalidTitle = tabData.some((tab) => tab.title == tabTitle.trim())
 
   return (
@@ -85,8 +91,8 @@ export const Form = ({ onClose, tabData }) => {
       </ModalBody>
 
       <ModalFooter>
-        <Button variantColor="blue" mr={3} onClick={onClose}>
-          Close
+        <Button variantColor="blue" mr={3} onClick={handleReset}>
+          Reset
         </Button>
         <Button isDisabled={submitDisabled} onClick={handleSubmit}>
           Save Tab
