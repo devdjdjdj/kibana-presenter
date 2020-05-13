@@ -9,12 +9,15 @@ import {
   Button,
   Collapse,
   Grid,
+  Input,
+  NumberInput,
   AlertDialog,
   AlertDialogBody,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogContent,
   AlertDialogOverlay,
+  IconButton,
 } from '@chakra-ui/core'
 
 export default ({ data }) => {
@@ -54,12 +57,13 @@ const TabDataContainer = ({ title, data }) => {
 const TabData = ({ title, data }) => {
   const [showTabData, setShowData] = React.useState(false)
   const [deleteDialogIsOpen, setDeleteDialogIsOpen] = React.useState(false)
+  const [scrollTime, setScrollTime] = React.useState(data.scrollTime)
+  const [kibanaURL, setKibanaURL] = React.useState(data.kibanaURL)
   const cancelRef = React.useRef()
 
   const closeDeleteDialog = () => setDeleteDialogIsOpen(false)
   const toggleShowData = () => setShowData(!showTabData)
   const handleDeleteButton = () => setDeleteDialogIsOpen(true)
-
   const handleDeleteDialogButton = (e) => {
     console.log(`Delete ${title}`)
     fetch('/api/tabs', {
@@ -77,31 +81,47 @@ const TabData = ({ title, data }) => {
       closeDeleteDialog()
     })
   }
+
   return (
     <>
-      <Grid templateColumns="4fr 1fr 1fr">
-        <Box m="2"> {title} </Box>
-        <Button
+      <Grid templateColumns="12fr 1fr 1fr">
+        <Box m="2">
+          <Heading size="lg">{title}</Heading> 
+        </Box>
+        <IconButton
+          icon={showTabData ? 'view-off' : 'edit'}
           ml="5"
           display="flex"
           variantColor="teal"
           variant="outline"
-          onClick={toggleShowData}>
-          {showTabData ? 'Collapse' : 'Expand'}
-        </Button>
-        <Button
+          onClick={toggleShowData}/>
+        <IconButton
+          icon="delete"
           ml="5"
           display="flex"
           variantColor="red"
-          onClick={handleDeleteButton}>
-          Delete
-        </Button>
+          onClick={handleDeleteButton}
+          />
       </Grid>
 
       <Collapse mt={4} isOpen={showTabData}>
         <Divider />
-        {JSON.stringify(data)}
+        <Stack>
+          <Box>
+            <Grid templateColumns="1fr 3fr">
+              <Box gridColumn={1} justifySelf="center">Kibana URL :</Box>
+              <Input gridColumn={2} value={kibanaURL} onChange={setKibanaURL}/>
+            </Grid>
+          </Box>
+          <Box>
+            <Grid templateColumns="1fr 3fr">
+              <Box gridColumn={1} justifySelf="center">Scroll Time :</Box>
+              <NumberInput gridColumn={2} value={scrollTime} onChange={setScrollTime}/>
+            </Grid>
+          </Box>
+        </Stack>
       </Collapse>
+
       <AlertDialog
         isOpen={deleteDialogIsOpen}
         leastDestructiveRef={cancelRef}
