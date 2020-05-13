@@ -19,7 +19,7 @@ export function addTab(tab) {
   } else {
     data = dataHandler.add('tabs', tab)
   }
-  return { tabs: data, code: 200 }
+  return { tabs: data, code: 201 }
 }
 
 export function removeTab(tab) {
@@ -39,7 +39,7 @@ export function addTemplate(template) {
   } else {
     data = dataHandler.add('templates', template)
   }
-  return { templates: data, code: 200 }
+  return { templates: data, code: 201 }
 }
 
 export function removeTemplate(template) {
