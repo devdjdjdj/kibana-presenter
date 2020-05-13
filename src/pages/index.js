@@ -1,6 +1,6 @@
 import Router from 'next/router'
 import { getTabs, getTemplates } from '../lib/controller'
-import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/core'
+import {Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/core'
 
 export default function ({ tabs, templates }) {
   React.useEffect(() => {
@@ -10,7 +10,7 @@ export default function ({ tabs, templates }) {
   })
 
   return (
-    <div className="container">
+    <div>
       <Tabs>
         <TabList>
           {tabs.map((tab, index) => (
@@ -20,7 +20,14 @@ export default function ({ tabs, templates }) {
         <TabPanels>
           {tabs.map((tab, index) => (
             <TabPanel p={4} key={index}>
-              {JSON.stringify(tab.data)}
+              <iframe
+                width="100%"
+                as="iframe"
+                scrolling="auto" height="750px"
+                src={tab.data.kibanaURL}
+                // src={tab.data.kibanaURL.replace('_g', 'embed=true&_g')}
+
+              />
             </TabPanel>
           ))}
         </TabPanels>
