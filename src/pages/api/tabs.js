@@ -1,4 +1,4 @@
-import { getTabs, addTab, removeTab } from '../../lib/controller'
+import { getTabs, addTab, editTab, removeTab } from '../../lib/controller'
 import { runMiddleware } from '../../lib/middleware'
 const morgan = require('morgan')
 
@@ -21,8 +21,14 @@ export default async (req, res) => {
       res.json(tabs)
       break
     }
+    case 'PUT': {
+      const tabTitle = req.body.tabTitle
+      const { tabs, code } = editTab(tabTitle, req.body.tabData)
+      res.statusCode = code
+      res.json(tabs)
+      break
+    }
     case 'DELETE': {
-      console.log(`In method ${req.method}`)
       const { tabs, code } = removeTab(req.body)
       res.statusCode = code
       res.json(tabs)

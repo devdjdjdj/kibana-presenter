@@ -22,6 +22,16 @@ export function addTab(tab) {
   return { tabs: data, code: 201 }
 }
 
+export function editTab(tabTitle, tabData) {
+  let data = getTabs()
+  if (data.some(({ title }) => title === tabTitle)) {
+    data = dataHandler.edit('tabs', tabTitle, tabData)
+  } else {
+    return { tabs: data, code: 404 }
+  }
+  return { tabs: data, code: 201 }
+}
+
 export function removeTab(tab) {
   let data = getTabs()
   if (data.some(({ title }) => title === tab.title)) {

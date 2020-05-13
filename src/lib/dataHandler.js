@@ -26,6 +26,14 @@ export function add(field, fieldData) {
   return data[field]
 }
 
+export function edit(field, currentTitle, fieldData) {
+  let data = getAllData()
+  let position = data[field].findIndex(({ title }) => title === currentTitle)
+  data[field][position] = fieldData
+  putAllData(data)
+  return data[field]
+}
+
 export function remove(field, objectTitle) {
   let data = getAllData()
   let position = data[field].findIndex(({ title }) => title === objectTitle)
