@@ -74,6 +74,7 @@ export const Form = ({ onClose, tabData }) => {
               id="scrollTime"
               placeholder="Scroll Time"
               value={scrollTime}
+              min={1}
               onChange={setScrollTime}
               size="md"
             />
