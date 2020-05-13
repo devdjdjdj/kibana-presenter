@@ -59,7 +59,7 @@ export const Form = ({ onClose, tabData }) => {
               onChange={(e) => setTabTitle(e.target.value)}
               size="lg"
             />
-            <FormErrorMessage>{'Matches existing Tab Title'}</FormErrorMessage>
+            <FormErrorMessage>{'This title already exists'}</FormErrorMessage>
           </FormControl>
           <FormControl isRequired>
             <FormLabel htmlFor="kibanaURL">Kibana URL</FormLabel>
