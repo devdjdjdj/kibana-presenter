@@ -22,11 +22,13 @@ export default ({ data }) => {
     <Grid templateColumns="1fr 8fr 1fr" templateRows="1fr 10fr">
       {/* prettier-ignore */}
       <Box gridColumn={2} gridRow={2} m={5} p={5} border="1px" borderRadius={10}>
-        <Heading my={1} pb={2}>
-          Admin Console
-        </Heading>
+        <Grid templateColumns="4fr 1fr"> 
+          <Heading my={1} pb={2} gridColumn={1}>
+            Admin Console
+          </Heading>
+          <NewTabForm tabs={data.tabs}/>
+        </Grid>
         <Divider />
-        <NewTabForm tabs={data.tabs}/>
         <Stack>
           {data.tabs.map((e, i) => (
             <TabDataContainer key={i} title={e.title} data={e.data} />
@@ -82,7 +84,8 @@ const TabData = ({ title, data }) => {
         <Button
           ml="5"
           display="flex"
-          variantColor="blue"
+          variantColor="teal"
+          variant="outline"
           onClick={toggleShowData}>
           {showTabData ? 'Collapse' : 'Expand'}
         </Button>

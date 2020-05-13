@@ -15,9 +15,10 @@ export function NewTabForm({ tabs }) {
 
   return (
     <>
-      <Button onClick={onOpen}>Add New Tab</Button>
-
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Button onClick={onOpen} variantColor="blue">
+        Add New Tab
+      </Button>
+      <Modal isOpen={isOpen} size="xl" onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>New Tab</ModalHeader>
