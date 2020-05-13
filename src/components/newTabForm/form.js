@@ -31,7 +31,7 @@ export const Form = ({ onClose, tabData }) => {
       },
       //make sure to serialize your JSON body
       body: JSON.stringify({
-        name: tabTitle.trim(),
+        title: tabTitle.trim(),
         data: {
           srcURL: kibanaURL.trim(),
           scrollTime: scrollTime,
@@ -44,7 +44,7 @@ export const Form = ({ onClose, tabData }) => {
     })
   }
 
-  const invalidTitle = tabData.some((tab) => tab.name == tabTitle.trim())
+  const invalidTitle = tabData.some((tab) => tab.title == tabTitle.trim())
 
   return (
     <form id="newTab">

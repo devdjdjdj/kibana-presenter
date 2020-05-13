@@ -7,7 +7,7 @@ data.json
   scrollTime
   tabs [
     {
-      name string
+      title string
       url string
       scrollTime int (seconds)
       

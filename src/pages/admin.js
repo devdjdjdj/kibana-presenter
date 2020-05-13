@@ -16,7 +16,7 @@ export default ({ data }) => {
         <NewTabForm tabs={data.tabs}/>
         <Stack>
           {data.tabs.map((e, i) => (
-            <TabBox key={i} name={e.name} data={e.data} />
+            <TabBox key={i} title={e.title} data={e.data} />
           ))}
         </Stack>
       </Box>
@@ -24,25 +24,25 @@ export default ({ data }) => {
   )
 }
 
-const TabBox = ({ name, data }) => {
+const TabBox = ({ title, data }) => {
   return (
     <>
       <Box border="1px" borderRadius={5} m={2} p={2}>
         <Box alignItems="center">
-          <TabData name={name} data={data} />
+          <TabData title={title} data={data} />
         </Box>
       </Box>
     </>
   )
 }
 
-const TabData = ({ name, data }) => {
+const TabData = ({ title, data }) => {
   const [show, setShow] = useState(false)
   const handleToggle = () => setShow(!show)
   return (
     <>
       <Grid templateColumns="4fr 1fr 1fr">
-        <Box m="2"> {name} </Box>
+        <Box m="2"> {title} </Box>
         {/* prettier-ignore */}
         <Button ml="5" display="flex" variantColor="blue" onClick={handleToggle}> Edit </Button>
         {/* prettier-ignore */}

@@ -15,7 +15,7 @@ export default function ({ tabs, templates }) {
       <Tabs>
         <TabList>
           {tabs.map((tab, index) => (
-            <Tab key={index}>{tab.name}</Tab>
+            <Tab key={index}>{tab.title}</Tab>
           ))}
         </TabList>
         <TabPanels>
