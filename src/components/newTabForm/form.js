@@ -33,7 +33,6 @@ export const Form = ({ onClose, tabData }) => {
         },
       }),
     }).then((response) => {
-      console.log(response)
       Router.push('/admin')
       onClose()
     })

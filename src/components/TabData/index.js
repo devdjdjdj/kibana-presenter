@@ -19,8 +19,7 @@ import {
   IconButton,
 } from '@chakra-ui/core'
 
-export function TabData ({ index, title, data , allTabs}) {
-
+export function TabData({ index, title, data, allTabs }) {
   const [showTabData, setShowData] = React.useState(false)
   const [deleteDialogIsOpen, setDeleteDialogIsOpen] = React.useState(false)
   const [scrollTime, setScrollTime] = React.useState(data.scrollTime)
@@ -34,14 +33,16 @@ export function TabData ({ index, title, data , allTabs}) {
     data.scrollTime == scrollTime
   )
 
-  const saveIsDisabled = !(newTitle.trim().length > 0 && kibanaURL.trim().length > 0 && !invalidTitle)
-
+  const saveIsDisabled = (
+    newTitle.trim().length <= 0 ||
+    kibanaURL.trim().length <= 0 ||
+    invalidTitle
+  )
 
   const closeDeleteDialog = () => setDeleteDialogIsOpen(false)
   const toggleShowData = () => setShowData(!showTabData)
   const handleDeleteButton = () => setDeleteDialogIsOpen(true)
   const handleDeleteDialogButton = (e) => {
-    console.log(`Delete ${title}`)
     fetch('/api/tabs', {
       method: 'delete',
       headers: {
@@ -52,7 +53,6 @@ export function TabData ({ index, title, data , allTabs}) {
         title: title,
       }),
     }).then((response) => {
-      console.log(response.status)
       Router.push('/admin')
       closeDeleteDialog()
     })
@@ -63,7 +63,6 @@ export function TabData ({ index, title, data , allTabs}) {
     setKibanaURL(data.kibanaURL)
   }
   const handleSaveButton = () => {
-    console.log(`Edit ${title}`)
     fetch('/api/tabs', {
       method: 'put',
       headers: {
@@ -76,21 +75,18 @@ export function TabData ({ index, title, data , allTabs}) {
           title: newTitle.trim(),
           data: {
             kibanaURL: kibanaURL.trim(),
-            scrollTime: scrollTime
-          }
-        }
+            scrollTime: scrollTime,
+          },
+        },
       }),
     }).then((response) => {
-      console.log(response.status)
       Router.push('/admin')
     })
   }
   const handleTitleChange = (e) => {
     setNewTitle(e.target.value)
     let titleIndex = allTabs.findIndex((tab) => tab.title === e.target.value)
-    console.log("TitleIndex : "+titleIndex)
-    console.log("Index      : "+index)
-    setInvalidTitle((titleIndex != -1 && titleIndex != index))
+    setInvalidTitle(titleIndex != -1 && titleIndex != index)
   }
 
   return (
@@ -162,8 +158,18 @@ export function TabData ({ index, title, data , allTabs}) {
           </Box>
         </Stack>
         <Collapse mt={5} isOpen={saveIsVisible} textAlign="right">
-          <IconButton mr={5} size="lg" icon="repeat" onClick={handleResetButton}/>
-          <Button mr={5} align="right" variantColor="teal" onClick={handleSaveButton} isDisabled={saveIsDisabled}>
+          <IconButton
+            mr={5}
+            size="lg"
+            icon="repeat"
+            onClick={handleResetButton}
+          />
+          <Button
+            mr={5}
+            align="right"
+            variantColor="teal"
+            onClick={handleSaveButton}
+            isDisabled={saveIsDisabled}>
             Save
           </Button>
         </Collapse>
@@ -178,9 +184,7 @@ export function TabData ({ index, title, data , allTabs}) {
           <AlertDialogHeader fontSize="lg" fontWeight="bold">
             Delete {title}
           </AlertDialogHeader>
-          <AlertDialogBody>
-            Are you sure? You can't undo this.
-          </AlertDialogBody>
+          <AlertDialogBody>Are you sure? You can't undo this.</AlertDialogBody>
           <AlertDialogFooter>
             <Button ref={cancelRef} onClick={closeDeleteDialog}>
               Cancel

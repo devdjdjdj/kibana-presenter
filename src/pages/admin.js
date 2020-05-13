@@ -1,13 +1,7 @@
 import { getData } from '../lib/controller'
 import { NewTabForm } from '../components/newTabForm'
 import { TabData } from '../components/TabData'
-import {
-  Heading,
-  Stack,
-  Box,
-  Divider,
-  Grid
-} from '@chakra-ui/core'
+import { Heading, Stack, Box, Divider, Grid } from '@chakra-ui/core'
 
 export default ({ data }) => {
   return (
@@ -31,12 +25,12 @@ export default ({ data }) => {
   )
 }
 
-const TabDataContainer = ({ index, title, data, allTabs}) => {
+const TabDataContainer = ({ index, title, data, allTabs }) => {
   return (
     <>
       <Box border="1px" borderRadius={5} m={2} p={2}>
         <Box alignItems="center">
-          <TabData index={index} title={title} data={data} allTabs={allTabs}/>
+          <TabData index={index} title={title} data={data} allTabs={allTabs} />
         </Box>
       </Box>
     </>
