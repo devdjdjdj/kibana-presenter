@@ -1,44 +1,58 @@
 {
   "tabs": [
     {
-      "name": "TabName1",
+      "title": "TabName1",
       "data": {
-        "tab1": 1,
-        "2": 2
+        "2": 2,
+        "tab1": 1
       }
     },
     {
-      "name": "TabName2",
+      "title": "TabName2",
       "data": {
-        "TAB2": 1,
-        "2": 2
+        "2": 2,
+        "TAB2": 1
       }
     },
     {
-      "name": "TabName3",
+      "title": "TabName3",
       "data": {
-        "tab3": 1,
-        "2": 2
+        "2": 2,
+        "tab3": 1
+      }
+    },
+    {
+      "title": "tab2",
+      "data": {
+        "srcURL": "asdfasdf",
+        "scrollTime": 10
+      }
+    },
+    {
+      "title": "tab3",
+      "data": {
+        "srcURL": "Src",
+        "scrollTime": 60
       }
     }
   ],
   "templates": [
     {
-      "name": "TemplateName2",
+      "title": "TemplateName2",
       "data": {
         "1": 1,
         "2": 2
       }
     },
     {
-      "name": "TemplateName4",
+      "title": "TemplateName4",
       "data": {
         "1": 1,
         "2": 2
       }
     },
     {
-      "name": "TemplateName1",
+      "title": "TemplateName1",
       "data": {
         "1": 1,
         "2": 2
