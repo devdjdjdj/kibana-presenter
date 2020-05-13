@@ -86,7 +86,7 @@ const TabData = ({ title, data }) => {
     <>
       <Grid templateColumns="12fr 1fr 1fr">
         <Box m="2">
-          <Heading size="lg">{title}</Heading> 
+          <Heading size="lg">{title}</Heading>
         </Box>
         <IconButton
           icon={showTabData ? 'view-off' : 'edit'}
@@ -94,14 +94,15 @@ const TabData = ({ title, data }) => {
           display="flex"
           variantColor="teal"
           variant="outline"
-          onClick={toggleShowData}/>
+          onClick={toggleShowData}
+        />
         <IconButton
           icon="delete"
           ml="5"
           display="flex"
           variantColor="red"
           onClick={handleDeleteButton}
-          />
+        />
       </Grid>
 
       <Collapse mt={4} isOpen={showTabData}>
@@ -109,14 +110,30 @@ const TabData = ({ title, data }) => {
         <Stack>
           <Box>
             <Grid templateColumns="1fr 3fr">
-              <Box gridColumn={1} justifySelf="center">Kibana URL :</Box>
-              <Input gridColumn={2} value={kibanaURL} onChange={setKibanaURL}/>
+              <Box gridColumn={1} justifySelf="center">
+                Tab Title :
+              </Box>
+              <Input gridColumn={2} value={title} />
             </Grid>
           </Box>
           <Box>
             <Grid templateColumns="1fr 3fr">
-              <Box gridColumn={1} justifySelf="center">Scroll Time :</Box>
-              <NumberInput gridColumn={2} value={scrollTime} onChange={setScrollTime}/>
+              <Box gridColumn={1} justifySelf="center">
+                Kibana URL :
+              </Box>
+              <Input gridColumn={2} value={kibanaURL} onChange={setKibanaURL} />
+            </Grid>
+          </Box>
+          <Box>
+            <Grid templateColumns="1fr 3fr">
+              <Box gridColumn={1} justifySelf="center">
+                Scroll Time :
+              </Box>
+              <NumberInput
+                gridColumn={2}
+                value={scrollTime}
+                onChange={setScrollTime}
+              />
             </Grid>
           </Box>
         </Stack>
