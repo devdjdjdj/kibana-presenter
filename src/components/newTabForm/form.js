@@ -28,7 +28,7 @@ export const Form = ({ onClose, tabData }) => {
       body: JSON.stringify({
         title: tabTitle.trim(),
         data: {
-          srcURL: kibanaURL.trim(),
+          kibanaURL: kibanaURL.trim(),
           scrollTime: scrollTime,
         },
       }),
