@@ -19,17 +19,12 @@ export const Form = ({ onClose, tabData }) => {
   const submitDisabled = !(tabTitle.length > 0 && kibanaURL.length > 0)
 
   const handleSubmit = (e) => {
-    console.log(tabTitle)
-    console.log(kibanaURL)
-    console.log(scrollTime)
-
     fetch('/api/tabs', {
       method: 'post',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      //make sure to serialize your JSON body
       body: JSON.stringify({
         title: tabTitle.trim(),
         data: {

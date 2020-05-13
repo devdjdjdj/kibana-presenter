@@ -1,8 +1,21 @@
 import { getData } from '../lib/controller'
-import { useState } from 'react'
 import { NewTabForm } from '../components/newTabForm'
-// prettier-ignore
-import { Heading, Stack, Box, Divider, Button, Collapse, Grid } from '@chakra-ui/core'
+import Router from 'next/router'
+import {
+  Heading,
+  Stack,
+  Box,
+  Divider,
+  Button,
+  Collapse,
+  Grid,
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,
+} from '@chakra-ui/core'
 
 export default ({ data }) => {
   return (
@@ -16,7 +29,7 @@ export default ({ data }) => {
         <NewTabForm tabs={data.tabs}/>
         <Stack>
           {data.tabs.map((e, i) => (
-            <TabBox key={i} title={e.title} data={e.data} />
+            <TabDataContainer key={i} title={e.title} data={e.data} />
           ))}
         </Stack>
       </Box>
@@ -24,7 +37,7 @@ export default ({ data }) => {
   )
 }
 
-const TabBox = ({ title, data }) => {
+const TabDataContainer = ({ title, data }) => {
   return (
     <>
       <Box border="1px" borderRadius={5} m={2} p={2}>
@@ -37,23 +50,80 @@ const TabBox = ({ title, data }) => {
 }
 
 const TabData = ({ title, data }) => {
-  const [show, setShow] = useState(false)
-  const handleToggle = () => setShow(!show)
+  const [showTabData, setShowData] = React.useState(false)
+  const [deleteDialogIsOpen, setDeleteDialogIsOpen] = React.useState(false)
+  const cancelRef = React.useRef()
+
+  const closeDeleteDialog = () => setDeleteDialogIsOpen(false)
+  const toggleShowData = () => setShowData(!showTabData)
+  const handleDeleteButton = () => setDeleteDialogIsOpen(true)
+
+  const handleDeleteDialogButton = (e) => {
+    console.log(`Delete ${title}`)
+    fetch('/api/tabs', {
+      method: 'delete',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        title: title,
+      }),
+    }).then((response) => {
+      console.log(response)
+      Router.push('/admin')
+      closeDeleteDialog()
+    })
+  }
   return (
     <>
       <Grid templateColumns="4fr 1fr 1fr">
         <Box m="2"> {title} </Box>
-        {/* prettier-ignore */}
-        <Button ml="5" display="flex" variantColor="blue" onClick={handleToggle}> Edit </Button>
-        {/* prettier-ignore */}
-        <Button ml="5" display="flex" variantColor="red" onClick={handleToggle}> Delete </Button>
+        <Button
+          ml="5"
+          display="flex"
+          variantColor="blue"
+          onClick={toggleShowData}>
+          {showTabData ? 'Collapse' : 'Expand'}
+        </Button>
+        <Button
+          ml="5"
+          display="flex"
+          variantColor="red"
+          onClick={handleDeleteButton}>
+          Delete
+        </Button>
       </Grid>
 
-      <Collapse mt={4} isOpen={show}>
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus
-        terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer
-        labore wes anderson cred nesciunt sapiente ea proident.
+      <Collapse mt={4} isOpen={showTabData}>
+        <Divider />
+        {JSON.stringify(data)}
       </Collapse>
+      <AlertDialog
+        isOpen={deleteDialogIsOpen}
+        leastDestructiveRef={cancelRef}
+        onClose={closeDeleteDialog}>
+        <AlertDialogOverlay />
+        <AlertDialogContent>
+          <AlertDialogHeader fontSize="lg" fontWeight="bold">
+            Delete Tab
+          </AlertDialogHeader>
+          <AlertDialogBody>
+            Are you sure? You can't undo this action afterwards.
+          </AlertDialogBody>
+          <AlertDialogFooter>
+            <Button ref={cancelRef} onClick={closeDeleteDialog}>
+              Cancel
+            </Button>
+            <Button
+              variantColor="red"
+              onClick={handleDeleteDialogButton}
+              ml={3}>
+              Delete
+            </Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </>
   )
 }
