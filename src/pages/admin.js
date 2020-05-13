@@ -13,7 +13,7 @@ export default ({ data }) => {
           Admin Console
         </Heading>
         <Divider />
-        <NewTabForm/>
+        <NewTabForm tabs={data.tabs}/>
         <Stack>
           {data.tabs.map((e, i) => (
             <TabBox key={i} name={e.name} data={e.data} />
@@ -41,7 +41,7 @@ const TabData = ({ name, data }) => {
   const handleToggle = () => setShow(!show)
   return (
     <>
-      <Grid templateColumns="7fr 1fr 1fr">
+      <Grid templateColumns="4fr 1fr 1fr">
         <Box m="2"> {name} </Box>
         {/* prettier-ignore */}
         <Button ml="5" display="flex" variantColor="blue" onClick={handleToggle}> Edit </Button>

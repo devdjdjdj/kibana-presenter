@@ -10,7 +10,7 @@ import {
 
 import { Form } from './form'
 
-export function NewTabForm() {
+export function NewTabForm({ tabs }) {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
@@ -22,7 +22,7 @@ export function NewTabForm() {
         <ModalContent>
           <ModalHeader>New Tab</ModalHeader>
           <ModalCloseButton />
-          <Form onClose={onClose}/>
+          <Form onClose={onClose} tabData={tabs} />
         </ModalContent>
       </Modal>
     </>
