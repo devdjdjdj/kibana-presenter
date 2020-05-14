@@ -2,24 +2,22 @@ import Router from 'next/router'
 import { getTabs, getTemplates } from '../lib/controller'
 import { parseURL } from '../lib/kibanaURLParser'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/core'
-import React, { useState, useEffect, useRef } from 'react';
 
 function useInterval(callback, delay) {
-  const savedCallback = useRef();
-  useEffect(() => {
-    savedCallback.current = callback;
-  }, [callback]);
-  useEffect(() => {
+  const savedCallback = React.useRef()
+  React.useEffect(() => {
+    savedCallback.current = callback
+  }, [callback])
+  React.useEffect(() => {
     function tick() {
-      savedCallback.current();
+      savedCallback.current()
     }
     if (delay !== null) {
-      let id = setInterval(tick, delay);
-      return () => clearInterval(id);
+      let id = setInterval(tick, delay)
+      return () => clearInterval(id)
     }
-  }, [delay]);
+  }, [delay])
 }
-
 
 export default function ({ tabs, templates, changeHeaderDisplay, scroll }) {
   const [tabIndex, setTabIndex] = React.useState(0)
@@ -33,7 +31,10 @@ export default function ({ tabs, templates, changeHeaderDisplay, scroll }) {
     setFrameHeight(window.innerHeight - 51)
   })
 
-  useInterval((e) => setTabIndex((tabIndex+1)%tabs.length), scroll ? tabs[tabIndex].data.scrollTime * 1000: null)
+  useInterval(
+    (e) => setTabIndex((tabIndex + 1) % tabs.length),
+    scroll ? tabs[tabIndex].data.scrollTime * 1000 : null
+  )
 
   return (
     <div width="100%">
