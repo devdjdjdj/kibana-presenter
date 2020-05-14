@@ -1,6 +1,6 @@
 {
   "name": "kibana-presenter",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Presenter for Kibana",
   "main": "index.js",
   "private": true,
@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "next start",
     "pretty": "prettier --write --jsx-bracket-same-line --no-semi --single-quote \"./**/*.{js,jsx,json}\" --html-whitespace-sensitivity ignore",
-    "prod" : "rm src/pages/api/* && rm src/pages/admin.js && next build && git stash"
+    "prod": "rm src/pages/api/* && rm src/pages/admin.js && next build && git stash"
   },
   "dependencies": {
     "@chakra-ui/core": "^0.7.0",
