@@ -3,16 +3,15 @@ import { getTabs, getTemplates } from '../lib/controller'
 import { parseURL } from '../lib/kibanaURLParser'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/core'
 
-export default function ({ tabs, templates, changeHeaderDisplay }) {
+export default function ({ tabs, templates, changeHeaderDisplay, scroll }) {
+  const [tabIndex, setTabIndex] = React.useState(0)
+  const [frameHeight, setFrameHeight] = React.useState(1000)
+
   React.useEffect(() => {
     if (!tabs.length) {
       Router.push('/admin')
     }
-    changeHeaderDisplay(tabs[0].title)
-  })
-  const [frameHeight, setFrameHeight] = React.useState(1000)
-
-  React.useEffect(() => {
+    changeHeaderDisplay(tabs[tabIndex].title)
     setFrameHeight(window.innerHeight - 51)
   })
 
@@ -22,7 +21,11 @@ export default function ({ tabs, templates, changeHeaderDisplay }) {
         width="100%"
         id="frameTabs"
         size="lg"
-        onChange={(index) => changeHeaderDisplay(tabs[index].title)}>
+        index={tabIndex}
+        onChange={(index) => {
+          setTabIndex(index)
+          // changeHeaderDisplay(tabs[index].title)
+        }}>
         <TabList id="frameTabs">
           {tabs.map((tab, index) => (
             <Tab key={index}>{tab.title}</Tab>
