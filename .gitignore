@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
@@ -18,6 +16,7 @@
 # misc
 .DS_Store
 .vscode/
+/.codesandbox/
 
 # debug
 npm-debug.log*
@@ -32,3 +31,5 @@ yarn-error.log*
 
 # data
 data/data.json
+
+
