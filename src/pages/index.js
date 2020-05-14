@@ -2,6 +2,24 @@ import Router from 'next/router'
 import { getTabs, getTemplates } from '../lib/controller'
 import { parseURL } from '../lib/kibanaURLParser'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/core'
+import React, { useState, useEffect, useRef } from 'react';
+
+function useInterval(callback, delay) {
+  const savedCallback = useRef();
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+  useEffect(() => {
+    function tick() {
+      savedCallback.current();
+    }
+    if (delay !== null) {
+      let id = setInterval(tick, delay);
+      return () => clearInterval(id);
+    }
+  }, [delay]);
+}
+
 
 export default function ({ tabs, templates, changeHeaderDisplay, scroll }) {
   const [tabIndex, setTabIndex] = React.useState(0)
@@ -15,6 +33,8 @@ export default function ({ tabs, templates, changeHeaderDisplay, scroll }) {
     setFrameHeight(window.innerHeight - 51)
   })
 
+  useInterval((e) => setTabIndex((tabIndex+1)%tabs.length), scroll ? tabs[tabIndex].data.scrollTime * 1000: null)
+
   return (
     <div width="100%">
       <Tabs
@@ -24,7 +44,6 @@ export default function ({ tabs, templates, changeHeaderDisplay, scroll }) {
         index={tabIndex}
         onChange={(index) => {
           setTabIndex(index)
-          // changeHeaderDisplay(tabs[index].title)
         }}>
         <TabList id="frameTabs">
           {tabs.map((tab, index) => (
