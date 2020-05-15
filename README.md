@@ -1,22 +1,38 @@
 # Kibana-Presenter
 A presenter for kibana with auto scroll (for TVs)
 
-## How to Use
 
-  1. ### Clone the repo
+## How to Use (Recommended)
 
-      `
-       https://github.com/devdjdjdj/kibana-presenter.git
-      `
+1. ### Clone the repo
+
+      `https://github.com/devdjdjdj/kibana-presenter.git`
     
 2. ### Download dependencies
 
-    `yarn install `
+    `npm install` or `yarn install`
 
-    or
+3. ### Run the application
 
-    `npm install `
+    `npm run dev` or `yarn dev`
 
-3. ### Build your dashboard
+    The application will run on port 3000 by default. Use the `-p` flag to specify the port. Example: `yarn dev -p 3001 `
+
+3. ### Add dashboards
+
+    Go to `http://localhost:3000/admin` 
+
+4. ### Build the application
+
+    * ### Without Admin Console
+    * ### With Admin Console
+
+    `npm run prod` or `yarn prod`
+
+
+
+
+
+
 
 
