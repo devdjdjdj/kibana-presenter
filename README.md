@@ -22,12 +22,22 @@ A presenter for kibana with auto scroll (for TVs)
 
     Go to `http://localhost:3000/admin` 
 
+
+
 4. ### Build the application
 
     * ### Without Admin Console
-    * ### With Admin Console
+        `npm run prod` or `yarn prod`
 
-    `npm run prod` or `yarn prod`
+    * ### With Admin Console
+        `npm run build` or `yarn build`
+
+5. ### Deploy
+
+    `npm start` or `yarn start`
+
+    
+
 
 
 
