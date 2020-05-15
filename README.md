@@ -22,8 +22,6 @@ A presenter for kibana with auto scroll (for TVs)
 
     Go to `http://localhost:3000/admin` 
 
-
-
 4. ### Build the application
 
     * ### Without Admin Console
@@ -36,7 +34,8 @@ A presenter for kibana with auto scroll (for TVs)
 
     `npm start` or `yarn start`
 
-    
+    The application will run on port 3000 by default. Use the `-p` flag to specify the port. Example: `npm start -p 8080 `
+
 
 
 
