@@ -37,14 +37,3 @@ A presenter for kibana with auto scroll (for TVs)
     All your dashboards could now be found at `http://localhost:3000/` 
     
     The application will run on port 3000 by default. Use the `-p` flag to specify the port. Example: `npm start -p 8080 `
-
-
-
-
-
-
-
-
-
-
-
