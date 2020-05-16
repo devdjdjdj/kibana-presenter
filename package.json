@@ -1,0 +1,47 @@
+{
+  "name": "kibana-presenter",
+  "version": "0.2.0",
+  "description": "Presenter for Kibana",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "debug": "NODE_OPTIONS='--inspect' next dev",
+    "build": "next build",
+    "start": "next start",
+    "pretty": "prettier --write --jsx-bracket-same-line --no-semi --single-quote \"./**/*.{js,jsx,json}\" --html-whitespace-sensitivity ignore",
+    "prod": "rm src/pages/api/* && rm src/pages/admin.js && next build && git stash"
+  },
+  "dependencies": {
+    "@chakra-ui/core": "^0.7.0",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "emotion-theming": "^10.0.27",
+    "morgan": "^1.10.0",
+    "next": "^9.3.6",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devdjdjdj/kibana-presenter.git"
+  },
+  "keywords": [
+    "kibana",
+    "dashboard",
+    "scroll",
+    "tv",
+    "kiosk",
+    "next",
+    "elastic"
+  ],
+  "author": "Devansh Jaiswal",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/devdjdjdj/kibana-presenter/issues"
+  },
+  "homepage": "https://github.com/devdjdjdj/kibana-presenter#readme"
+}
