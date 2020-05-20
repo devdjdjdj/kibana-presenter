@@ -1,6 +1,6 @@
 {
   "name": "kibana-presenter",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "Presenter for Kibana",
   "main": "index.js",
   "private": true,
