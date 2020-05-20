@@ -19,16 +19,18 @@ function useInterval(callback, delay) {
   }, [delay])
 }
 
-export default function ({ tabs, templates, changeHeaderDisplay, scroll }) {
+export default function ({ tabs, changeHeaderDisplay, scroll, setShowScroll }) {
   const [tabIndex, setTabIndex] = React.useState(0)
   const [frameHeight, setFrameHeight] = React.useState(1000)
 
   React.useEffect(() => {
     if (!tabs.length) {
       Router.push('/admin')
+    } else {
+      changeHeaderDisplay(tabs[tabIndex].title)
+      setFrameHeight(window.innerHeight - 51)
+      setShowScroll(true)
     }
-    changeHeaderDisplay(tabs[tabIndex].title)
-    setFrameHeight(window.innerHeight - 51)
   })
 
   useInterval(

@@ -4,7 +4,9 @@ import { Form } from '../components/NewTabForm/form'
 import { TabData } from '../components/TabData'
 import { Heading, Stack, Box, Divider, Grid } from '@chakra-ui/core'
 
-export default ({ data }) => {
+export default ({ data, setShowScroll }) => {
+  setShowScroll(false)
+
   return (
     <Grid templateColumns="1fr 8fr 1fr" templateRows="1fr 10fr">
       <Box

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Heading, Flex, Switch, Box, FormLabel } from '@chakra-ui/core'
+import { Heading, Flex, Switch, Box } from '@chakra-ui/core'
 
-export const Header = ({ tabTitle, toggleScroll }) => {
+export const Header = ({ tabTitle, toggleScroll, showScroll }) => {
   return (
     <Flex
       as="nav"
@@ -18,12 +18,14 @@ export const Header = ({ tabTitle, toggleScroll }) => {
       </Flex>
       <Box>
         <Heading as="h4" size="md">
-          Auto Scroll
-          <Switch
-            size="lg"
-            ml={5}
-            onChange={(e) => toggleScroll(e.target.checked)}
-          />
+          <Box d={showScroll ? 'inline-block' : 'none'}>
+            Auto Scroll
+            <Switch
+              size="lg"
+              ml={5}
+              onChange={(e) => toggleScroll(e.target.checked)}
+            />
+          </Box>
         </Heading>
       </Box>
     </Flex>
