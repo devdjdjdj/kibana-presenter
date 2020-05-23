@@ -5,6 +5,7 @@ import { TimeFilter } from './TimeFilter'
 export const Header = ({ tabTitle, toggleScroll, showOptions }) => {
   return (
     <Flex
+      position="sticky"
       as="nav"
       align="center"
       justify="space-between"
@@ -18,16 +19,16 @@ export const Header = ({ tabTitle, toggleScroll, showOptions }) => {
         </Heading>
       </Flex>
       <Flex align="right" d={showOptions ? 'flex' : 'none'}>
+        <Flex>
+          <TimeFilter />
+        </Flex>
+        <Divider orientation="vertical" mr={5} ml={5} />
         <Heading as="h4" size="md" mt={1}>
           <Box>
             Auto Scroll
             <Switch size="lg" ml={5} onChange={(e) => toggleScroll(e.target.checked)} />
           </Box>
         </Heading>
-        <Divider orientation="vertical" mr={5} ml={5} />
-        <Flex>
-          <TimeFilter />
-        </Flex>
       </Flex>
     </Flex>
   )

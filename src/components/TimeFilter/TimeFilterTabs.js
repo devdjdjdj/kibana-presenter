@@ -1,9 +1,28 @@
-export const TimeFilterTabs = () => {
+import { Box, Button } from '@chakra-ui/core'
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/core'
+
+export const TimeFilterTabs = ({show}) => {
   return (
-    <Flex mr={3}>
-      <Button _hover={{ bg: 'cyan.400' }} _active={{ bg: 'cyan.500' }} variant="outline">
-        Timekeeper
-      </Button>
-    </Flex>
+    <Box mr={3} position="fixed" top={50} right={50} d={show ? 'block' : 'none'}>
+      <Tabs>
+        <TabList>
+          <Tab>One</Tab>
+          <Tab>Two</Tab>
+          <Tab>Three</Tab>
+        </TabList>
+
+        <TabPanels>
+          <TabPanel>
+            <p>one!</p>
+          </TabPanel>
+          <TabPanel>
+            <p>two!</p>
+          </TabPanel>
+          <TabPanel>
+            <p>three!</p>
+          </TabPanel>
+        </TabPanels>
+      </Tabs>
+    </Box>
   )
 }
