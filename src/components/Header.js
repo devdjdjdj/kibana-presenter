@@ -1,5 +1,6 @@
 import React from 'react'
-import { Heading, Flex, Switch, Box } from '@chakra-ui/core'
+import { Heading, Flex, Switch, Box , Divider} from '@chakra-ui/core'
+import {TimeFilter}  from './TimeFilter'
 
 export const Header = ({ tabTitle, toggleScroll, showScroll }) => {
   return (
@@ -11,13 +12,13 @@ export const Header = ({ tabTitle, toggleScroll, showScroll }) => {
       padding="1rem"
       bg="cyan.600"
       color="white">
-      <Flex align="center" mr={5}>
+      <Flex align="left" mr={5}>
         <Heading as="h1" size="lg">
           Kibana Presenter {tabTitle}
         </Heading>
       </Flex>
-      <Box>
-        <Heading as="h4" size="md">
+      <Flex align="right">
+        <Heading as="h4" size="md" mt={1} >
           <Box d={showScroll ? 'inline-block' : 'none'}>
             Auto Scroll
             <Switch
@@ -27,7 +28,9 @@ export const Header = ({ tabTitle, toggleScroll, showScroll }) => {
             />
           </Box>
         </Heading>
-      </Box>
+        <Divider orientation="vertical" mr={5} ml={5} />
+        <TimeFilter/>
+      </Flex>
     </Flex>
   )
 }

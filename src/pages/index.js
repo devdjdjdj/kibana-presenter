@@ -28,7 +28,7 @@ export default function ({ tabs, changeHeaderDisplay, scroll, setShowScroll }) {
       Router.push('/admin')
     } else {
       changeHeaderDisplay(tabs[tabIndex].title)
-      setFrameHeight(window.innerHeight - 51)
+      setFrameHeight(window.innerHeight - 55)
       setShowScroll(true)
     }
   })
