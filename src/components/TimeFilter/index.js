@@ -20,7 +20,7 @@ export const TimeFilter = () => {
         onClick={toggleShowTimeFilterTabs}>
         Timekeeper
       </Button>
-      <TimeFilterTabs show={show}/>
+      <TimeFilterTabs show={show} />
     </Flex>
   )
 }
