@@ -4,7 +4,7 @@ import { Header } from '../components/Header'
 export default ({ Component, pageProps }) => {
   const [tabTitle, setTabTitle] = React.useState('')
   const [scroll, setScroll] = React.useState(false)
-  const [showScroll, setShowScroll] = React.useState(true)
+  const [showOptions, setShowOptions] = React.useState(true)
 
   const handleTabChange = (title) => {
     setTabTitle(` - Current Tab : ${title}`)
@@ -12,12 +12,12 @@ export default ({ Component, pageProps }) => {
   return (
     <ThemeProvider>
       <CSSReset />
-      <Header tabTitle={tabTitle} toggleScroll={setScroll} showScroll={showScroll} />
+      <Header tabTitle={tabTitle} toggleScroll={setScroll} showOptions={showOptions} />
       <Component
         {...pageProps}
         changeHeaderDisplay={handleTabChange}
         scroll={scroll}
-        setShowScroll={setShowScroll}
+        setShowOptions={setShowOptions}
       />
     </ThemeProvider>
   )

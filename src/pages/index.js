@@ -19,7 +19,7 @@ function useInterval(callback, delay) {
   }, [delay])
 }
 
-export default function ({ tabs, changeHeaderDisplay, scroll, setShowScroll }) {
+export default function ({ tabs, changeHeaderDisplay, scroll, setShowOptions }) {
   const [tabIndex, setTabIndex] = React.useState(0)
   const [frameHeight, setFrameHeight] = React.useState(1000)
 
@@ -29,7 +29,7 @@ export default function ({ tabs, changeHeaderDisplay, scroll, setShowScroll }) {
     } else {
       changeHeaderDisplay(tabs[tabIndex].title)
       setFrameHeight(window.innerHeight - 55)
-      setShowScroll(true)
+      setShowOptions(true)
     }
   })
 
