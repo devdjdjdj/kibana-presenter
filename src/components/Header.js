@@ -19,13 +19,13 @@ export const Header = ({ tabTitle, toggleScroll, showOptions }) => {
       </Flex>
       <Flex align="right" d={showOptions ? 'flex' : 'none'}>
         <Heading as="h4" size="md" mt={1}>
-          <Box >
+          <Box>
             Auto Scroll
             <Switch size="lg" ml={5} onChange={(e) => toggleScroll(e.target.checked)} />
           </Box>
         </Heading>
         <Divider orientation="vertical" mr={5} ml={5} />
-        <Flex  >
+        <Flex>
           <TimeFilter />
         </Flex>
       </Flex>
