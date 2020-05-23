@@ -15,7 +15,6 @@ const quickRanges = [
   { from: 'now-1M/M', to: 'now-1M/M', display: 'Previous month', section: 1 },
   { from: 'now-1y/y', to: 'now-1y/y', display: 'Previous year', section: 1 },
 
-
   { from: 'now-5h', to: 'now-1h/m', display: 'Last 4 hours', section: 2 },
   { from: 'now-9h', to: 'now-1h/m', display: 'Last 8 hours', section: 2 },
   { from: 'now-13h', to: 'now-1h/m', display: 'Last 12 hours', section: 2 },
@@ -30,7 +29,7 @@ const quickRanges = [
   { from: 'now-6M', to: 'now', display: 'Last 6 months', section: 3 },
   { from: 'now-1y', to: 'now', display: 'Last 1 year', section: 3 },
   { from: 'now-2y', to: 'now', display: 'Last 2 years', section: 3 },
-  { from: 'now-5y', to: 'now', display: 'Last 5 years', section: 3 }
-];
+  { from: 'now-5y', to: 'now', display: 'Last 5 years', section: 3 },
+]
 
 export default quickRanges

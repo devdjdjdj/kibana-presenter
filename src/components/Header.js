@@ -1,6 +1,6 @@
 import React from 'react'
-import { Heading, Flex, Switch, Box , Divider} from '@chakra-ui/core'
-import {TimeFilter}  from './TimeFilter'
+import { Heading, Flex, Switch, Box, Divider } from '@chakra-ui/core'
+import { TimeFilter } from './TimeFilter'
 
 export const Header = ({ tabTitle, toggleScroll, showScroll }) => {
   return (
@@ -18,18 +18,14 @@ export const Header = ({ tabTitle, toggleScroll, showScroll }) => {
         </Heading>
       </Flex>
       <Flex align="right">
-        <Heading as="h4" size="md" mt={1} >
+        <Heading as="h4" size="md" mt={1}>
           <Box d={showScroll ? 'inline-block' : 'none'}>
             Auto Scroll
-            <Switch
-              size="lg"
-              ml={5}
-              onChange={(e) => toggleScroll(e.target.checked)}
-            />
+            <Switch size="lg" ml={5} onChange={(e) => toggleScroll(e.target.checked)} />
           </Box>
         </Heading>
         <Divider orientation="vertical" mr={5} ml={5} />
-        <TimeFilter/>
+        <TimeFilter />
       </Flex>
     </Flex>
   )

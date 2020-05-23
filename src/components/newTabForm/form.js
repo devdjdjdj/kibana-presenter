@@ -69,9 +69,7 @@ export const Form = ({ onClose, tabData }) => {
               value={kibanaURL}
               onChange={(e) => setKibanaURL(e.target.value)}
             />
-            <FormHelperText id="kibanaURL-helper-text">
-              Instructions to grab Kibana URL
-            </FormHelperText>
+            <FormHelperText id="kibanaURL-helper-text">Instructions to grab Kibana URL</FormHelperText>
           </FormControl>
           <FormControl>
             <FormLabel htmlFor="kibanaURL">Scroll Time</FormLabel>
@@ -83,9 +81,7 @@ export const Form = ({ onClose, tabData }) => {
               onChange={setScrollTime}
               size="md"
             />
-            <FormHelperText id="scrollTime-helper-text">
-              In Seconds
-            </FormHelperText>
+            <FormHelperText id="scrollTime-helper-text">In Seconds</FormHelperText>
           </FormControl>
         </Stack>
       </ModalBody>

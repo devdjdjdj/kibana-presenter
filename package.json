@@ -9,7 +9,7 @@
     "debug": "NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
-    "pretty": "prettier --write --jsx-bracket-same-line --no-semi --single-quote \"./**/*.{js,jsx,json}\" --html-whitespace-sensitivity ignore",
+    "pretty": "prettier --write --jsx-bracket-same-line --no-semi --single-quote \"./**/*.{js,jsx,json}\" --html-whitespace-sensitivity ignore --print-width 110",
     "prod": "rm src/pages/api/* && rm src/pages/admin.js && next build && git stash"
   },
   "dependencies": {

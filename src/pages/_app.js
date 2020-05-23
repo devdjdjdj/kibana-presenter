@@ -12,11 +12,7 @@ export default ({ Component, pageProps }) => {
   return (
     <ThemeProvider>
       <CSSReset />
-      <Header
-        tabTitle={tabTitle}
-        toggleScroll={setScroll}
-        showScroll={showScroll}
-      />
+      <Header tabTitle={tabTitle} toggleScroll={setScroll} showScroll={showScroll} />
       <Component
         {...pageProps}
         changeHeaderDisplay={handleTabChange}

@@ -33,8 +33,7 @@ export function TabData({ index, title, data, allTabs }) {
     data.scrollTime == scrollTime
   )
 
-  const saveIsDisabled =
-    newTitle.trim().length <= 0 || kibanaURL.trim().length <= 0 || invalidTitle
+  const saveIsDisabled = newTitle.trim().length <= 0 || kibanaURL.trim().length <= 0 || invalidTitle
 
   const closeDeleteDialog = () => setDeleteDialogIsOpen(false)
   const toggleShowData = () => setShowData(!showTabData)
@@ -120,11 +119,7 @@ export function TabData({ index, title, data, allTabs }) {
                 Tab Title :
               </Box>
               <FormControl isRequired isInvalid={invalidTitle}>
-                <Input
-                  gridColumn={2}
-                  value={newTitle}
-                  onChange={handleTitleChange}
-                />
+                <Input gridColumn={2} value={newTitle} onChange={handleTitleChange} />
               </FormControl>
             </Grid>
           </Box>
@@ -133,11 +128,7 @@ export function TabData({ index, title, data, allTabs }) {
               <Box mt={2} mr={5} gridColumn={1} justifySelf="right">
                 Kibana URL :
               </Box>
-              <Input
-                gridColumn={2}
-                value={kibanaURL}
-                onChange={(e) => setKibanaURL(e.target.value)}
-              />
+              <Input gridColumn={2} value={kibanaURL} onChange={(e) => setKibanaURL(e.target.value)} />
             </Grid>
           </Box>
           <Box>
@@ -145,22 +136,12 @@ export function TabData({ index, title, data, allTabs }) {
               <Box mt={2} mr={5} gridColumn={1} justifySelf="right">
                 Scroll Time :
               </Box>
-              <NumberInput
-                gridColumn={2}
-                min={1}
-                value={scrollTime}
-                onChange={setScrollTime}
-              />
+              <NumberInput gridColumn={2} min={1} value={scrollTime} onChange={setScrollTime} />
             </Grid>
           </Box>
         </Stack>
         <Collapse mt={5} isOpen={saveIsVisible} textAlign="right">
-          <IconButton
-            mr={5}
-            size="lg"
-            icon="repeat"
-            onClick={handleResetButton}
-          />
+          <IconButton mr={5} size="lg" icon="repeat" onClick={handleResetButton} />
           <Button
             mr={5}
             align="right"
@@ -172,10 +153,7 @@ export function TabData({ index, title, data, allTabs }) {
         </Collapse>
       </Collapse>
 
-      <AlertDialog
-        isOpen={deleteDialogIsOpen}
-        leastDestructiveRef={cancelRef}
-        onClose={closeDeleteDialog}>
+      <AlertDialog isOpen={deleteDialogIsOpen} leastDestructiveRef={cancelRef} onClose={closeDeleteDialog}>
         <AlertDialogOverlay />
         <AlertDialogContent>
           <AlertDialogHeader fontSize="lg" fontWeight="bold">
@@ -186,10 +164,7 @@ export function TabData({ index, title, data, allTabs }) {
             <Button ref={cancelRef} onClick={closeDeleteDialog}>
               Cancel
             </Button>
-            <Button
-              variantColor="red"
-              onClick={handleDeleteDialogButton}
-              ml={3}>
+            <Button variantColor="red" onClick={handleDeleteDialogButton} ml={3}>
               Delete
             </Button>
           </AlertDialogFooter>
