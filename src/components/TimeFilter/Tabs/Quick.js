@@ -1,5 +1,5 @@
 import quickRanges from '../config'
-import { Box } from '@chakra-ui/core'
+import { Grid, Box } from '@chakra-ui/core'
 import styled from '@emotion/styled'
 
 export const Quick = ({ handleTimeChange }) => {
@@ -18,53 +18,47 @@ export const Quick = ({ handleTimeChange }) => {
   )`
 
   return (
-    <Box color="black" p={2}>
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              {quickRanges
-                .filter((e) => e.section === 0)
-                .map((x, i) => (
-                  <QuickTimeLink key={i} onClick={(e) => handleClick(x)}>
-                    {' '}
-                    {x.display}
-                  </QuickTimeLink>
-                ))}
-            </td>
-            <td>
-              {quickRanges
-                .filter((e) => e.section === 1)
-                .map((x, i) => (
-                  <QuickTimeLink key={i} onClick={(e) => handleClick(x)}>
-                    {' '}
-                    {x.display}
-                  </QuickTimeLink>
-                ))}
-            </td>
-            <td>
-              {quickRanges
-                .filter((e) => e.section === 2)
-                .map((x, i) => (
-                  <QuickTimeLink key={i} onClick={(e) => handleClick(x)}>
-                    {' '}
-                    {x.display}
-                  </QuickTimeLink>
-                ))}
-            </td>
-            <td>
-              {quickRanges
-                .filter((e) => e.section === 3)
-                .map((x, i) => (
-                  <QuickTimeLink key={i} onClick={(e) => handleClick(x)}>
-                    {' '}
-                    {x.display}
-                  </QuickTimeLink>
-                ))}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </Box>
+    <Grid templateColumns="repeat(4, 1fr)" gap={2} color="black" pt={5}>
+      <Box w="100%">
+        {quickRanges
+          .filter((e) => e.section === 0)
+          .map((x, i) => (
+            <QuickTimeLink key={i} onClick={(e) => handleClick(x)}>
+              {' '}
+              {x.display}
+            </QuickTimeLink>
+          ))}
+      </Box>
+      <Box w="100%">
+        {quickRanges
+          .filter((e) => e.section === 1)
+          .map((x, i) => (
+            <QuickTimeLink key={i} onClick={(e) => handleClick(x)}>
+              {' '}
+              {x.display}
+            </QuickTimeLink>
+          ))}
+      </Box>
+      <Box w="100%">
+        {quickRanges
+          .filter((e) => e.section === 2)
+          .map((x, i) => (
+            <QuickTimeLink key={i} onClick={(e) => handleClick(x)}>
+              {' '}
+              {x.display}
+            </QuickTimeLink>
+          ))}
+      </Box>
+      <Box w="100%">
+        {quickRanges
+          .filter((e) => e.section === 3)
+          .map((x, i) => (
+            <QuickTimeLink key={i} onClick={(e) => handleClick(x)}>
+              {' '}
+              {x.display}
+            </QuickTimeLink>
+          ))}
+      </Box>
+    </Grid>
   )
 }

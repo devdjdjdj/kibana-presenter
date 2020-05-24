@@ -13,15 +13,15 @@ export const TimeFilterTabs = ({ show, handleTimeChange }) => {
       right={200}
       d={show ? 'block' : 'none'}
       borderRadius={10}
-      width="525px"
-      height="300px"
+      width="550px"
+      height="230px"
       bg="white"
       boxShadow="0px 0px 45px 0px rgba(0,0,0,0.75)">
       <Tabs variant="enclosed" size="md" borderRadius={10} isFitted>
         <TabList bg="cyan.400" borderTopRightRadius={10} borderTopLeftRadius={10}>
           <Tab _selected={{ color: 'white', bg: 'cyan.700' }}>Quick</Tab>
-          <Tab _selected={{ color: 'white', bg: 'cyan.700' }}>Absolute</Tab>
-          <Tab _selected={{ color: 'white', bg: 'cyan.700' }}>Recent</Tab>
+          {/* <Tab _selected={{ color: 'white', bg: 'cyan.700' }}>Absolute</Tab>
+          <Tab _selected={{ color: 'white', bg: 'cyan.700' }}>Recent</Tab> */}
         </TabList>
 
         <TabPanels bg="white">
