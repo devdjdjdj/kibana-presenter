@@ -1,14 +1,9 @@
 import quickRanges from '../config'
 import { Box } from '@chakra-ui/core'
 
-
-
-
-export const Quick = ({handleTimeChange}) => {
-
+export const Quick = ({ handleTimeChange }) => {
   const handleClick = (time) => {
     time['mode'] = 'quick'
-    console.log(time)
     handleTimeChange(time)
   }
 

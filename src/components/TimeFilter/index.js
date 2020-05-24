@@ -5,7 +5,6 @@ export const TimeFilter = ({ setTime, time }) => {
   const [show, setShow] = React.useState(false)
 
   const toggleShowTimeFilterTabs = () => {
-    console.log('TimeFilter Button Clicked')
     setShow(!show)
   }
 

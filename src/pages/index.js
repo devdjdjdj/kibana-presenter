@@ -19,7 +19,7 @@ function useInterval(callback, delay) {
   }, [delay])
 }
 
-export default function ({ tabs, changeHeaderDisplay, scroll, setShowOptions, time }) {
+export default function ({ tabs, changeHeaderDisplay, scroll, setShowOptions, setTime, time }) {
   const [tabIndex, setTabIndex] = React.useState(0)
   const [frameHeight, setFrameHeight] = React.useState(1000)
 

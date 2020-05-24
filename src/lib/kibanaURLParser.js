@@ -5,7 +5,6 @@ export function getSrc(tab, time) {
 function createSrc(kibanaURL, time) {
   let url = getURL(kibanaURL)
   let timeQuery = getTimeQuery(time)
-  console.log(url + timeQuery)
   return url + timeQuery
 }
 
