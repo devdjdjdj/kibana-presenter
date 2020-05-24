@@ -2,7 +2,7 @@ import { ThemeProvider, CSSReset } from '@chakra-ui/core'
 import { Header } from '../components/Header'
 import { TIME } from '../../kibana-presenter-config'
 
-export default ({ Component, pageProps}) => {
+export default ({ Component, pageProps }) => {
   const [tabTitle, setTabTitle] = React.useState('')
   const [scroll, setScroll] = React.useState(false)
   const [showOptions, setShowOptions] = React.useState(true)
@@ -33,4 +33,3 @@ export default ({ Component, pageProps}) => {
     </ThemeProvider>
   )
 }
-

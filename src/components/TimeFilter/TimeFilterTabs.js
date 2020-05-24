@@ -10,10 +10,10 @@ export const TimeFilterTabs = ({ show, handleTimeChange }) => {
       mr={3}
       position="absolute"
       top={75}
-      right={220}
+      right={200}
       d={show ? 'block' : 'none'}
       borderRadius={10}
-      width="500px"
+      width="525px"
       height="300px"
       bg="white"
       boxShadow="0px 0px 45px 0px rgba(0,0,0,0.75)">
