@@ -9,7 +9,6 @@ const quickRanges = [
   { from: 'now/y', to: 'now', display: 'Year to date', section: 0 },
 
   { from: 'now-1d/d', to: 'now-1d/d', display: 'Yesterday', section: 1 },
-  { from: 'now-2d/d', to: 'now-2d/d', display: 'Day before yesterday', section: 1 },
   { from: 'now-7d/d', to: 'now-7d/d', display: 'This day last week', section: 1 },
   { from: 'now-1w/w', to: 'now-1w/w', display: 'Previous week', section: 1 },
   { from: 'now-1M/M', to: 'now-1M/M', display: 'Previous month', section: 1 },
