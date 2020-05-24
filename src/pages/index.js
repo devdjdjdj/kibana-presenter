@@ -33,10 +33,7 @@ export default function ({ tabs, changeHeaderDisplay, scroll, setShowOptions, se
     }
   })
 
-  useInterval(
-    (e) => setTabIndex((tabIndex + 1) % tabs.length),
-    scroll ? tabs[tabIndex].data.scrollTime * 1000 : null
-  )
+  useInterval((e) => setTabIndex((tabIndex + 1) % tabs.length), scroll ? tabs[tabIndex].data.scrollTime * 1000 : null)
 
   return (
     <div width="100%">

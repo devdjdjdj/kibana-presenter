@@ -17,9 +17,7 @@ export default ({ data, setShowOptions }) => {
           <NewTabForm tabs={data.tabs} />
         </Grid>
         <Divider />
-        {data.tabs.length == 0 && (
-          <Form gridColumn={2} gridRow={2} onClose={() => window.close()} tabData={data.tabs} />
-        )}
+        {data.tabs.length == 0 && <Form gridColumn={2} gridRow={2} onClose={() => window.close()} tabData={data.tabs} />}
         <Stack>
           {data.tabs.map((e, index) => (
             <TabDataContainer key={index} index={index} title={e.title} data={e.data} allTabs={data.tabs} />

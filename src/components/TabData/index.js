@@ -27,11 +27,7 @@ export function TabData({ index, title, data, allTabs }) {
   const [invalidTitle, setInvalidTitle] = React.useState(false)
   const [kibanaURL, setKibanaURL] = React.useState(data.kibanaURL)
   const cancelRef = React.useRef()
-  const saveIsVisible = !(
-    title === newTitle.trim() &&
-    data.kibanaURL === kibanaURL.trim() &&
-    data.scrollTime == scrollTime
-  )
+  const saveIsVisible = !(title === newTitle.trim() && data.kibanaURL === kibanaURL.trim() && data.scrollTime == scrollTime)
 
   const saveIsDisabled = newTitle.trim().length <= 0 || kibanaURL.trim().length <= 0 || invalidTitle
 
@@ -100,14 +96,7 @@ export function TabData({ index, title, data, allTabs }) {
           variant="outline"
           onClick={toggleShowData}
         />
-        <IconButton
-          icon="delete"
-          ml="5"
-          size="lg"
-          display="flex"
-          variantColor="red"
-          onClick={handleDeleteButton}
-        />
+        <IconButton icon="delete" ml="5" size="lg" display="flex" variantColor="red" onClick={handleDeleteButton} />
       </Grid>
 
       <Collapse mt={4} isOpen={showTabData}>
@@ -142,12 +131,7 @@ export function TabData({ index, title, data, allTabs }) {
         </Stack>
         <Collapse mt={5} isOpen={saveIsVisible} textAlign="right">
           <IconButton mr={5} size="lg" icon="repeat" onClick={handleResetButton} />
-          <Button
-            mr={5}
-            align="right"
-            variantColor="teal"
-            onClick={handleSaveButton}
-            isDisabled={saveIsDisabled}>
+          <Button mr={5} align="right" variantColor="teal" onClick={handleSaveButton} isDisabled={saveIsDisabled}>
             Save
           </Button>
         </Collapse>
