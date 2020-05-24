@@ -24,7 +24,6 @@ export const Quick = ({ handleTimeChange }) => {
           .filter((e) => e.section === 0)
           .map((x, i) => (
             <QuickTimeLink key={i} onClick={(e) => handleClick(x)}>
-              {' '}
               {x.display}
             </QuickTimeLink>
           ))}
@@ -34,7 +33,6 @@ export const Quick = ({ handleTimeChange }) => {
           .filter((e) => e.section === 1)
           .map((x, i) => (
             <QuickTimeLink key={i} onClick={(e) => handleClick(x)}>
-              {' '}
               {x.display}
             </QuickTimeLink>
           ))}
@@ -44,7 +42,6 @@ export const Quick = ({ handleTimeChange }) => {
           .filter((e) => e.section === 2)
           .map((x, i) => (
             <QuickTimeLink key={i} onClick={(e) => handleClick(x)}>
-              {' '}
               {x.display}
             </QuickTimeLink>
           ))}
@@ -54,7 +51,6 @@ export const Quick = ({ handleTimeChange }) => {
           .filter((e) => e.section === 3)
           .map((x, i) => (
             <QuickTimeLink key={i} onClick={(e) => handleClick(x)}>
-              {' '}
               {x.display}
             </QuickTimeLink>
           ))}
