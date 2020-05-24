@@ -16,28 +16,28 @@ export const Quick = ({ handleTimeChange }) => {
               {quickRanges
                 .filter((e) => e.section === 0)
                 .map((x, i) => (
-                  <div onClick={(e) => handleClick(x)}> {x.display}</div>
+                  <div key={i} onClick={(e) => handleClick(x)}> {x.display}</div>
                 ))}
             </td>
             <td>
               {quickRanges
                 .filter((e) => e.section === 1)
                 .map((x, i) => (
-                  <div onClick={(e) => handleClick(x)}> {x.display}</div>
+                  <div key={i} onClick={(e) => handleClick(x)}> {x.display}</div>
                 ))}
             </td>
             <td>
               {quickRanges
                 .filter((e) => e.section === 2)
                 .map((x, i) => (
-                  <div onClick={(e) => handleClick(x)}> {x.display}</div>
+                  <div key={i} onClick={(e) => handleClick(x)}> {x.display}</div>
                 ))}
             </td>
             <td>
               {quickRanges
                 .filter((e) => e.section === 3)
                 .map((x, i) => (
-                  <div onClick={(e) => handleClick(x)}> {x.display}</div>
+                  <div key={i} onClick={(e) => handleClick(x)}> {x.display}</div>
                 ))}
             </td>
           </tr>
