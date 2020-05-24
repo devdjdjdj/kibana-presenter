@@ -1,6 +1,6 @@
 import Router from 'next/router'
 import { getTabs, getTemplates } from '../lib/controller'
-import { parseURL } from '../lib/kibanaURLParser'
+import { getSrc } from '../lib/kibanaURLParser'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/core'
 
 function useInterval(callback, delay) {
@@ -19,7 +19,7 @@ function useInterval(callback, delay) {
   }, [delay])
 }
 
-export default function ({ tabs, changeHeaderDisplay, scroll, setShowOptions }) {
+export default function ({ tabs, changeHeaderDisplay, scroll, setShowOptions, time }) {
   const [tabIndex, setTabIndex] = React.useState(0)
   const [frameHeight, setFrameHeight] = React.useState(1000)
 
@@ -61,7 +61,7 @@ export default function ({ tabs, changeHeaderDisplay, scroll, setShowOptions }) 
                 m={0}
                 key={index}
                 as="iframe"
-                src={parseURL(tab.data.kibanaURL)}
+                src={getSrc(tab, time)}
                 width="100%"
                 scrolling="auto"
                 height={`${frameHeight}px`}

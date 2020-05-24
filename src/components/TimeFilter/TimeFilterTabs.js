@@ -2,14 +2,15 @@ import { Box } from '@chakra-ui/core'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/core'
 import { Absolute } from './Tabs/Absolute'
 import { Quick } from './Tabs/Quick'
+import { Recent } from './Tabs/Recent'
 
-export const TimeFilterTabs = ({ show }) => {
+export const TimeFilterTabs = ({ show, handleTimeChange }) => {
   return (
     <Box
       mr={3}
       position="absolute"
       top={75}
-      right={5}
+      right={220}
       d={show ? 'block' : 'none'}
       borderRadius={10}
       width="500px"
@@ -25,12 +26,14 @@ export const TimeFilterTabs = ({ show }) => {
 
         <TabPanels bg="white">
           <TabPanel>
-            <Quick />
+            <Quick handleTimeChange={handleTimeChange} />
           </TabPanel>
           <TabPanel>
-            <Absolute />
+            <Absolute handleTimeChange={handleTimeChange} />
           </TabPanel>
-          <TabPanel>Recent</TabPanel>
+          <TabPanel>
+            <Recent handleTimeChange={handleTimeChange} />
+          </TabPanel>
         </TabPanels>
       </Tabs>
     </Box>

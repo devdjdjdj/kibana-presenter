@@ -1,12 +1,17 @@
 import { Flex, Button } from '@chakra-ui/core'
 import { TimeFilterTabs } from './TimeFilterTabs'
 
-export const TimeFilter = () => {
+export const TimeFilter = ({ setTime, time }) => {
   const [show, setShow] = React.useState(false)
 
   const toggleShowTimeFilterTabs = () => {
     console.log('TimeFilter Button Clicked')
     setShow(!show)
+  }
+
+  const handleTimeChange = (time) => {
+    toggleShowTimeFilterTabs()
+    setTime(time)
   }
 
   return (
@@ -15,12 +20,13 @@ export const TimeFilter = () => {
         variant="outline"
         _hover={{ bg: 'cyan.400' }}
         _active={{ bg: 'cyan.500' }}
+        width="500px"
         mt={0}
         zIndex={9}
         onClick={toggleShowTimeFilterTabs}>
-        Timekeeper
+        {time.display}
       </Button>
-      <TimeFilterTabs show={show} />
+      <TimeFilterTabs show={show} handleTimeChange={handleTimeChange} />
     </Flex>
   )
 }

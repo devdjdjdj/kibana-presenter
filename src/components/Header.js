@@ -2,7 +2,7 @@ import React from 'react'
 import { Heading, Flex, Switch, Box, Divider } from '@chakra-ui/core'
 import { TimeFilter } from './TimeFilter'
 
-export const Header = ({ tabTitle, toggleScroll, showOptions }) => {
+export const Header = ({ tabTitle, toggleScroll, showOptions, setTime, time }) => {
   return (
     <Flex
       position="sticky"
@@ -20,7 +20,7 @@ export const Header = ({ tabTitle, toggleScroll, showOptions }) => {
       </Flex>
       <Flex align="right" d={showOptions ? 'flex' : 'none'}>
         <Flex>
-          <TimeFilter />
+          <TimeFilter setTime={setTime} time={time} />
         </Flex>
         <Divider orientation="vertical" mr={5} ml={5} />
         <Heading as="h4" size="md" mt={1}>
