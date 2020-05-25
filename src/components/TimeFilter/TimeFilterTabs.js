@@ -21,7 +21,7 @@ export const TimeFilterTabs = ({ show, handleTimeChange }) => {
         <TabList bg="cyan.400" borderTopRightRadius={10} borderTopLeftRadius={10}>
           <Tab _selected={{ color: 'white', bg: 'cyan.700' }}>Quick</Tab>
           <Tab _selected={{ color: 'white', bg: 'cyan.700' }}>Absolute</Tab>
-          <Tab _selected={{ color: 'white', bg: 'cyan.700' }}>Recent</Tab> 
+          <Tab _selected={{ color: 'white', bg: 'cyan.700' }}>Recent</Tab>
         </TabList>
 
         <TabPanels bg="white">
