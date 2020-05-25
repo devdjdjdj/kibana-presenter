@@ -1,6 +1,8 @@
 import { ThemeProvider, CSSReset } from '@chakra-ui/core'
 import { Header } from '../components/Header'
 import { TIME } from '../../kibana-presenter-config'
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
 
 export default ({ Component, pageProps }) => {
   const [tabTitle, setTabTitle] = React.useState('')
