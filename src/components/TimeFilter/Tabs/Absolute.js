@@ -10,7 +10,7 @@ export function Absolute({ handleTimeChange }) {
       to.getMinutes() > 9 ? to.getMinutes() : '0' + to.getMinutes()
     }`
   }
-  
+
   const handleClick = () => {
     const from = new Date(startDate)
     const to = new Date(endDate)
@@ -26,8 +26,6 @@ export function Absolute({ handleTimeChange }) {
 
   return (
     <Box color="black" p={5}>
- 
-
       <Button onClick={handleClick}>Go</Button>
     </Box>
   )
