@@ -27,14 +27,9 @@ export function TabData({ index, title, data, allTabs }) {
   const [invalidTitle, setInvalidTitle] = React.useState(false)
   const [kibanaURL, setKibanaURL] = React.useState(data.kibanaURL)
   const cancelRef = React.useRef()
-  const saveIsVisible = !(
-    title === newTitle.trim() &&
-    data.kibanaURL === kibanaURL.trim() &&
-    data.scrollTime == scrollTime
-  )
+  const saveIsVisible = !(title === newTitle.trim() && data.kibanaURL === kibanaURL.trim() && data.scrollTime == scrollTime)
 
-  const saveIsDisabled =
-    newTitle.trim().length <= 0 || kibanaURL.trim().length <= 0 || invalidTitle
+  const saveIsDisabled = newTitle.trim().length <= 0 || kibanaURL.trim().length <= 0 || invalidTitle
 
   const closeDeleteDialog = () => setDeleteDialogIsOpen(false)
   const toggleShowData = () => setShowData(!showTabData)
@@ -101,14 +96,7 @@ export function TabData({ index, title, data, allTabs }) {
           variant="outline"
           onClick={toggleShowData}
         />
-        <IconButton
-          icon="delete"
-          ml="5"
-          size="lg"
-          display="flex"
-          variantColor="red"
-          onClick={handleDeleteButton}
-        />
+        <IconButton icon="delete" ml="5" size="lg" display="flex" variantColor="red" onClick={handleDeleteButton} />
       </Grid>
 
       <Collapse mt={4} isOpen={showTabData}>
@@ -120,11 +108,7 @@ export function TabData({ index, title, data, allTabs }) {
                 Tab Title :
               </Box>
               <FormControl isRequired isInvalid={invalidTitle}>
-                <Input
-                  gridColumn={2}
-                  value={newTitle}
-                  onChange={handleTitleChange}
-                />
+                <Input gridColumn={2} value={newTitle} onChange={handleTitleChange} />
               </FormControl>
             </Grid>
           </Box>
@@ -133,11 +117,7 @@ export function TabData({ index, title, data, allTabs }) {
               <Box mt={2} mr={5} gridColumn={1} justifySelf="right">
                 Kibana URL :
               </Box>
-              <Input
-                gridColumn={2}
-                value={kibanaURL}
-                onChange={(e) => setKibanaURL(e.target.value)}
-              />
+              <Input gridColumn={2} value={kibanaURL} onChange={(e) => setKibanaURL(e.target.value)} />
             </Grid>
           </Box>
           <Box>
@@ -145,37 +125,19 @@ export function TabData({ index, title, data, allTabs }) {
               <Box mt={2} mr={5} gridColumn={1} justifySelf="right">
                 Scroll Time :
               </Box>
-              <NumberInput
-                gridColumn={2}
-                min={1}
-                value={scrollTime}
-                onChange={setScrollTime}
-              />
+              <NumberInput gridColumn={2} min={1} value={scrollTime} onChange={setScrollTime} />
             </Grid>
           </Box>
         </Stack>
         <Collapse mt={5} isOpen={saveIsVisible} textAlign="right">
-          <IconButton
-            mr={5}
-            size="lg"
-            icon="repeat"
-            onClick={handleResetButton}
-          />
-          <Button
-            mr={5}
-            align="right"
-            variantColor="teal"
-            onClick={handleSaveButton}
-            isDisabled={saveIsDisabled}>
+          <IconButton mr={5} size="lg" icon="repeat" onClick={handleResetButton} />
+          <Button mr={5} align="right" variantColor="teal" onClick={handleSaveButton} isDisabled={saveIsDisabled}>
             Save
           </Button>
         </Collapse>
       </Collapse>
 
-      <AlertDialog
-        isOpen={deleteDialogIsOpen}
-        leastDestructiveRef={cancelRef}
-        onClose={closeDeleteDialog}>
+      <AlertDialog isOpen={deleteDialogIsOpen} leastDestructiveRef={cancelRef} onClose={closeDeleteDialog}>
         <AlertDialogOverlay />
         <AlertDialogContent>
           <AlertDialogHeader fontSize="lg" fontWeight="bold">
@@ -186,10 +148,7 @@ export function TabData({ index, title, data, allTabs }) {
             <Button ref={cancelRef} onClick={closeDeleteDialog}>
               Cancel
             </Button>
-            <Button
-              variantColor="red"
-              onClick={handleDeleteDialogButton}
-              ml={3}>
+            <Button variantColor="red" onClick={handleDeleteDialogButton} ml={3}>
               Delete
             </Button>
           </AlertDialogFooter>

@@ -1,12 +1,4 @@
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  useDisclosure,
-  Button,
-} from '@chakra-ui/core'
+import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, useDisclosure, Button } from '@chakra-ui/core'
 
 import { Form } from './form'
 
