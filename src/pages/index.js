@@ -42,7 +42,7 @@ export default function ({ tabs, changeHeaderDisplay, scroll, cycle, setShowOpti
       Router.push('/admin')
     } else {
       changeHeaderDisplay(tabs[tabIndex].title)
-      setFrameHeight(window.innerHeight - 55)
+      setFrameHeight(window.innerHeight - 39)
       setShowOptions(true)
       changeTabIndex(tabIndex)
     }

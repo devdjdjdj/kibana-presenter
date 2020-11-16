@@ -19,7 +19,7 @@ export const TimeFilter = ({ setTime, time }) => {
         variant="outline"
         _hover={{ bg: 'cyan.400' }}
         _active={{ bg: 'cyan.500' }}
-        width="500px"
+        width="200px"
         mt={0}
         zIndex={9}
         onClick={toggleShowTimeFilterTabs}>

@@ -17,7 +17,12 @@ export default ({ Component, pageProps }) => {
   return (
     <ThemeProvider>
       <CSSReset />
-      <Header tabTitle={tabTitle} toggleScroll={setScroll} toggleCycle={setCycle} showOptions={showOptions} setTime={setTime} time={time} />
+      <Header tabTitle={tabTitle}
+              toggleScroll={setScroll}
+              toggleCycle={setCycle}
+              showOptions={showOptions}
+              setTime={setTime}
+              time={time}/>
       <Component
         {...pageProps}
         changeHeaderDisplay={handleTabChange}
