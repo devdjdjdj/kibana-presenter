@@ -1,4 +1,4 @@
-import { getTemplates, addTemplate, removeTemplate } from '../../lib/controller'
+import { loadTemplates, addTemplate, removeTemplate } from '../../lib/controller'
 import { runMiddleware } from '../../lib/middleware'
 const morgan = require('morgan')
 
@@ -6,7 +6,7 @@ export default async (req, res) => {
   await runMiddleware(req, res, morgan('tiny'))
   switch (req.method) {
     case 'GET':
-      const allTemplates = getTemplates()
+      const allTemplates = loadTemplates()
       if (allTemplates.length) {
         res.statusCode = 200
         res.json(allTemplates)

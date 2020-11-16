@@ -17,9 +17,10 @@ export default ({ Component, pageProps }) => {
   return (
     <ThemeProvider>
       <CSSReset />
-      <Header tabTitle={tabTitle}
-              toggleScroll={setScroll}
-              toggleCycle={setCycle}
+      <Header {...pageProps}
+              tabTitle={tabTitle}
+              setScroll={setScroll}
+              setCycle={setCycle}
               showOptions={showOptions}
               setTime={setTime}
               time={time}/>

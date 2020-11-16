@@ -1,4 +1,4 @@
-import { getData } from '../lib/controller'
+import { loadData, loadSettings } from '../lib/controller'
 import { NewTabForm } from '../components/NewTabForm'
 import { Form } from '../components/NewTabForm/form'
 import { TabData } from '../components/TabData'
@@ -39,6 +39,7 @@ const TabDataContainer = ({ index, title, data, allTabs }) => {
 }
 
 export async function getServerSideProps() {
-  const data = getData()
-  return { props: { data } }
+  const data = loadData()
+  const settings = loadSettings()
+  return { props: { data, settings } }
 }

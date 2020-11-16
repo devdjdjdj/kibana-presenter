@@ -1,5 +1,5 @@
 import Router from 'next/router'
-import { getTabs, getTemplates } from '../lib/controller'
+import { loadTabs, loadTemplates, loadSettings } from '../lib/controller'
 import { getSrc } from '../lib/kibanaURLParser'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/core'
 import $ from 'jquery';
@@ -90,7 +90,8 @@ export default function ({ tabs, changeHeaderDisplay, scroll, cycle, setShowOpti
 }
 
 export async function getServerSideProps() {
-  const tabs = getTabs()
-  const templates = getTemplates()
-  return { props: { tabs, templates } }
+  const tabs = loadTabs()
+  const templates = loadTemplates()
+  const settings = loadSettings()
+  return { props: { tabs, templates, settings } }
 }

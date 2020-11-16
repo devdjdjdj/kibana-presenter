@@ -1,4 +1,4 @@
-import { getTabs, addTab, editTab, removeTab } from '../../lib/controller'
+import { loadTabs, addTab, editTab, removeTab } from '../../lib/controller'
 import { runMiddleware } from '../../lib/middleware'
 const morgan = require('morgan')
 
@@ -6,7 +6,7 @@ export default async (req, res) => {
   await runMiddleware(req, res, morgan('tiny'))
   switch (req.method) {
     case 'GET':
-      const allTabs = getTabs()
+      const allTabs = loadTabs()
       if (allTabs.length) {
         res.statusCode = 200
         res.json(allTabs)
