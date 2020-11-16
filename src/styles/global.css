@@ -1,0 +1,10 @@
+.tabpanel-iframe[hidden] {
+  opacity: 0;
+  display: block !important;
+  pointer-events: none;
+}
+
+.tabpanel-iframe {
+  position: absolute;
+  z-index: -1;
+}

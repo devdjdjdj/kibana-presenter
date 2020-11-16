@@ -1,6 +1,7 @@
 import { ThemeProvider, CSSReset } from '@chakra-ui/core'
 import { Header } from '../components/Header'
 import { TIME } from '../../kibana-presenter-config'
+import '../styles/global.css';
 
 export default ({ Component, pageProps }) => {
   const [tabTitle, setTabTitle] = React.useState('')

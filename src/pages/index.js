@@ -61,6 +61,7 @@ export default function ({ tabs, changeHeaderDisplay, scroll, setShowOptions, se
                 src={getSrc(tab, time)}
                 width="100%"
                 scrolling="auto"
+                className="tabpanel-iframe"
                 height={`${frameHeight}px`}
               />
             )

@@ -30,13 +30,11 @@ export default ({ data, setShowOptions }) => {
 
 const TabDataContainer = ({ index, title, data, allTabs }) => {
   return (
-    <>
-      <Box border="1px" borderRadius={5} m={2} p={2}>
-        <Box alignItems="center">
-          <TabData index={index} title={title} data={data} allTabs={allTabs} />
-        </Box>
+    <Box border="1px" borderRadius={5} m={2} p={2}>
+      <Box alignItems="center">
+        <TabData index={index} title={title} data={data} allTabs={allTabs} />
       </Box>
-    </>
+    </Box>
   )
 }
 
