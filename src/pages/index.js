@@ -2,6 +2,7 @@ import Router from 'next/router'
 import { getTabs, getTemplates } from '../lib/controller'
 import { getSrc } from '../lib/kibanaURLParser'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/core'
+import $ from 'jquery';
 
 function useInterval(callback, delay) {
   const savedCallback = React.useRef()
@@ -19,21 +20,35 @@ function useInterval(callback, delay) {
   }, [delay])
 }
 
-export default function ({ tabs, changeHeaderDisplay, scroll, setShowOptions, setTime, time }) {
+export default function ({ tabs, changeHeaderDisplay, scroll, cycle, setShowOptions, setTime, time }) {
   const [tabIndex, setTabIndex] = React.useState(0)
   const [frameHeight, setFrameHeight] = React.useState(1000)
 
+  const changeTabIndex = (index) => {
+    $('.tabpanel-iframe').stop(true);
+    $('.tabpanel-iframe').animate({ scrollTop: 0 }, 10);
+    setTabIndex(index);
+    if(!scroll) return;
+    let cycleTimeMs = tabs[index].data.cycleTime * 1000;
+    setTimeout(() => {
+      let panel = $('.tabpanel-iframe:not([hidden])');
+      panel.animate({ scrollTop: panel.height() }, cycleTimeMs * 0.7);
+    }, cycleTimeMs * 0.2);
+  };
+
   React.useEffect(() => {
+    window.$ = $;
     if (!tabs.length) {
       Router.push('/admin')
     } else {
       changeHeaderDisplay(tabs[tabIndex].title)
       setFrameHeight(window.innerHeight - 55)
       setShowOptions(true)
+      changeTabIndex(tabIndex)
     }
   })
 
-  useInterval((e) => setTabIndex((tabIndex + 1) % tabs.length), scroll ? tabs[tabIndex].data.scrollTime * 1000 : null)
+  useInterval((e) => changeTabIndex((tabIndex + 1) % tabs.length), cycle ? tabs[tabIndex].data.cycleTime * 1000 : null);
 
   return (
     <div width="100%">
@@ -43,7 +58,7 @@ export default function ({ tabs, changeHeaderDisplay, scroll, setShowOptions, se
         size="lg"
         index={tabIndex}
         onChange={(index) => {
-          setTabIndex(index)
+          changeTabIndex(index)
         }}>
         <TabList id="frameTabs">
           {tabs.map((tab, index) => (
@@ -57,13 +72,15 @@ export default function ({ tabs, changeHeaderDisplay, scroll, setShowOptions, se
                 p={0}
                 m={0}
                 key={index}
-                as="iframe"
-                src={getSrc(tab, time)}
-                width="100%"
-                scrolling="auto"
-                className="tabpanel-iframe"
                 height={`${frameHeight}px`}
-              />
+                width="100%"
+                className="tabpanel-iframe">
+                <iframe
+                  src={getSrc(tab, time)}
+                  width="100%"
+                  height="200%"
+                  scrolling="no"/>
+              </TabPanel>
             )
           })}
         </TabPanels>
