@@ -15,7 +15,8 @@ import Router from 'next/router'
 export const Form = ({ onClose, tabData }) => {
   const [tabTitle, setTabTitle] = React.useState('')
   const [kibanaURL, setKibanaURL] = React.useState('')
-  const [cycleTime, setcycleTime] = React.useState(10)
+  const [frameHeight, setFrameHeight] = React.useState('');
+  const [cycleTime, setCycleTime] = React.useState(10)
   const submitDisabled = !(tabTitle.length > 0 && kibanaURL.length > 0)
 
   const handleSubmit = (e) => {
@@ -30,6 +31,7 @@ export const Form = ({ onClose, tabData }) => {
         data: {
           kibanaURL: kibanaURL.trim(),
           cycleTime: cycleTime,
+          frameHeight: frameHeight
         },
       }),
     }).then((response) => {
@@ -41,7 +43,8 @@ export const Form = ({ onClose, tabData }) => {
   const handleReset = () => {
     setTabTitle('')
     setKibanaURL('')
-    setcycleTime(10)
+    setFrameHeight('')
+    setCycleTime(10)
   }
 
   const invalidTitle = tabData.some((tab) => tab.title == tabTitle.trim())
@@ -78,10 +81,19 @@ export const Form = ({ onClose, tabData }) => {
               placeholder="Cycle Time"
               value={cycleTime}
               min={1}
-              onChange={setcycleTime}
+              onChange={setCycleTime}
               size="md"
             />
             <FormHelperText id="cycleTime-helper-text">In Seconds</FormHelperText>
+          </FormControl>
+          <FormControl isRequired>
+            <FormLabel htmlFor="kibanaURL">Dashboard Height</FormLabel>
+            <Input
+              id="frameHeight"
+              placeholder="950px"
+              value={frameHeight}
+              onChange={(e) => setFrameHeight(e.target.value)}
+            />
           </FormControl>
         </Stack>
       </ModalBody>

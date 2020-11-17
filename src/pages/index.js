@@ -28,12 +28,12 @@ export default function ({ tabs, changeHeaderDisplay, scroll, cycle, setShowOpti
     $('.tabpanel-iframe').stop(true);
     $('.tabpanel-iframe').animate({ scrollTop: 0 }, 10);
     setTabIndex(index);
-    if(!scroll) return;
     let cycleTimeMs = tabs[index].data.cycleTime * 1000;
     setTimeout(() => {
       let panel = $('.tabpanel-iframe:not([hidden])');
-      panel.animate({ scrollTop: panel.height() }, cycleTimeMs * 0.7);
-    }, cycleTimeMs * 0.2);
+      panel.find('iframe').height(tabs[index].data.frameHeight || '100%');
+      if(scroll) panel.animate({ scrollTop: panel.height() }, cycleTimeMs * 0.6);
+    }, cycleTimeMs * 0.3);
   };
 
   React.useEffect(() => {
@@ -78,7 +78,7 @@ export default function ({ tabs, changeHeaderDisplay, scroll, cycle, setShowOpti
                 <iframe
                   src={getSrc(tab, time)}
                   width="100%"
-                  height="200%"
+                  height="100%"
                   scrolling="no"/>
               </TabPanel>
             )
