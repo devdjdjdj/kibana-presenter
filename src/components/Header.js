@@ -42,6 +42,11 @@ export const Header = ({ settings, tabTitle, setScroll, setCycle, showOptions, s
     setHeaderVisible(checked);
   };
 
+  const saveTimeSetting = (time) => {
+    updateSetting('time', time);
+    setTime(time);
+  }
+
   return (
     <Flex
       as="nav"
@@ -61,7 +66,7 @@ export const Header = ({ settings, tabTitle, setScroll, setCycle, showOptions, s
       </Flex>
       <Flex align="right" d={showOptions ? 'flex' : 'none'}>
         <Flex>
-          <TimeFilter setTime={setTime} time={time} />
+          <TimeFilter setTime={saveTimeSetting} time={time} />
         </Flex>
         <Divider orientation="vertical" mr={5} ml={5} />
         <Heading as="h4" size="sm" mt={2}>
