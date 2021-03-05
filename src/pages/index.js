@@ -23,11 +23,13 @@ function useInterval(callback, delay) {
 export default function ({ tabs, changeHeaderDisplay, scroll, cycle, setShowOptions, setTime, time }) {
   const [tabIndex, setTabIndex] = React.useState(0)
   const [frameHeight, setFrameHeight] = React.useState(1000)
+  const [tabSrc, setTabSrc] = React.useState(null);
 
   const changeTabIndex = (index) => {
     $('.tabpanel-iframe').stop(true);
     $('.tabpanel-iframe').animate({ scrollTop: 0 }, 10);
     setTabIndex(index);
+    setTabSrc(getSrc(tabs[index], time));
     let cycleTimeMs = tabs[index].data.cycleTime * 1000;
     setTimeout(() => {
       let panel = $('.tabpanel-iframe:not([hidden])');
@@ -65,25 +67,13 @@ export default function ({ tabs, changeHeaderDisplay, scroll, cycle, setShowOpti
             <Tab key={index}>{tab.title}</Tab>
           ))}
         </TabList>
-        <TabPanels p={0} m={0} width="100%">
-          {tabs.map((tab, index) => {
-            return (
-              <TabPanel
-                p={0}
-                m={0}
-                key={index}
-                height={`${frameHeight}px`}
-                width="100%"
-                className="tabpanel-iframe">
-                <iframe
-                  src={getSrc(tab, time)}
-                  width="100%"
-                  height="100%"
-                  scrolling="no"/>
-              </TabPanel>
-            )
-          })}
-        </TabPanels>
+        <div class="tabpanel-iframe">
+          <iframe
+            src={tabSrc}
+            width="100%"
+            height="100%"
+            scrolling="no"/>
+        </div>
       </Tabs>
     </div>
   )

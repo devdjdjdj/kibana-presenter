@@ -8,10 +8,15 @@
   position: absolute;
   z-index: -1;
   overflow-y: scroll;
+  left: 0px;
+  right: 0px;
+  top: 40px;
+  bottom: 0px;
 }
 
 #frameTabs {
   line-height: 0.75;
+  background: #fff;
 }
 
 #headerToggle {
