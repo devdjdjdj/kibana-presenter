@@ -1,0 +1,43 @@
+.tabpanel-iframe[hidden] {
+  opacity: 0;
+  display: block !important;
+  pointer-events: none;
+}
+
+.tabpanel-iframe {
+  position: absolute;
+  z-index: -1;
+  overflow-y: scroll;
+  left: 0px;
+  right: 0px;
+  top: 40px;
+  bottom: 0px;
+}
+
+#frameTabs {
+  line-height: 0.75;
+  background: #fff;
+}
+
+#headerToggle {
+  background: #0c739a;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  bottom: -30px;
+  right: 0px;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+#flexHeader {
+  margin-top: -72px;
+  transition: 400ms ease-in-out margin-top;
+}
+
+#flexHeader.visible {
+  margin-top: 0px;
+}

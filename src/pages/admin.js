@@ -1,4 +1,4 @@
-import { getData } from '../lib/controller'
+import { loadData, loadSettings } from '../lib/controller'
 import { NewTabForm } from '../components/NewTabForm'
 import { Form } from '../components/NewTabForm/form'
 import { TabData } from '../components/TabData'
@@ -30,17 +30,16 @@ export default ({ data, setShowOptions }) => {
 
 const TabDataContainer = ({ index, title, data, allTabs }) => {
   return (
-    <>
-      <Box border="1px" borderRadius={5} m={2} p={2}>
-        <Box alignItems="center">
-          <TabData index={index} title={title} data={data} allTabs={allTabs} />
-        </Box>
+    <Box border="1px" borderRadius={5} m={2} p={2}>
+      <Box alignItems="center">
+        <TabData index={index} title={title} data={data} allTabs={allTabs} />
       </Box>
-    </>
+    </Box>
   )
 }
 
 export async function getServerSideProps() {
-  const data = getData()
-  return { props: { data } }
+  const data = loadData()
+  const settings = loadSettings()
+  return { props: { data, settings } }
 }

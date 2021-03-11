@@ -15,7 +15,7 @@ export function getAllData() {
     const data = fs.readFileSync(dataPath)
     return JSON.parse(data)
   } catch (err) {
-    return { tabs: [], templates: [] }
+    return { tabs: [], templates: [], settings: {} }
   }
 }
 
@@ -26,10 +26,14 @@ export function add(field, fieldData) {
   return data[field]
 }
 
-export function edit(field, currentTitle, fieldData) {
+export function edit(field, fieldData, currentTitle=null) {
   let data = getAllData()
-  let position = data[field].findIndex(({ title }) => title === currentTitle)
-  data[field][position] = fieldData
+  if(data[field] instanceof Array) {
+    let position = data[field].findIndex(({ title }) => title === currentTitle)
+    data[field][position] = fieldData
+  } else {
+    data[field] = fieldData
+  }
   putAllData(data)
   return data[field]
 }

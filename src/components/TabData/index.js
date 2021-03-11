@@ -22,12 +22,13 @@ import {
 export function TabData({ index, title, data, allTabs }) {
   const [showTabData, setShowData] = React.useState(false)
   const [deleteDialogIsOpen, setDeleteDialogIsOpen] = React.useState(false)
-  const [scrollTime, setScrollTime] = React.useState(data.scrollTime)
+  const [cycleTime, setCycleTime] = React.useState(data.cycleTime)
+  const [frameHeight, setFrameHeight] = React.useState(data.frameHeight);
   const [newTitle, setNewTitle] = React.useState(title)
   const [invalidTitle, setInvalidTitle] = React.useState(false)
   const [kibanaURL, setKibanaURL] = React.useState(data.kibanaURL)
   const cancelRef = React.useRef()
-  const saveIsVisible = !(title === newTitle.trim() && data.kibanaURL === kibanaURL.trim() && data.scrollTime == scrollTime)
+  const saveIsVisible = !(title === newTitle.trim() && data.kibanaURL === kibanaURL.trim() && data.cycleTime == cycleTime && data.frameHeight == frameHeight)
 
   const saveIsDisabled = newTitle.trim().length <= 0 || kibanaURL.trim().length <= 0 || invalidTitle
 
@@ -50,7 +51,7 @@ export function TabData({ index, title, data, allTabs }) {
     })
   }
   const handleResetButton = () => {
-    setScrollTime(data.scrollTime)
+    setCycleTime(data.cycleTime)
     setNewTitle(title)
     setKibanaURL(data.kibanaURL)
   }
@@ -67,7 +68,8 @@ export function TabData({ index, title, data, allTabs }) {
           title: newTitle.trim(),
           data: {
             kibanaURL: kibanaURL.trim(),
-            scrollTime: scrollTime,
+            cycleTime: cycleTime,
+            frameHeight: frameHeight
           },
         },
       }),
@@ -105,7 +107,7 @@ export function TabData({ index, title, data, allTabs }) {
           <Box>
             <Grid templateColumns="1fr 3fr">
               <Box mt={2} mr={5} gridColumn={1} justifySelf="right">
-                Tab Title :
+                Tab Title:
               </Box>
               <FormControl isRequired isInvalid={invalidTitle}>
                 <Input gridColumn={2} value={newTitle} onChange={handleTitleChange} />
@@ -115,7 +117,7 @@ export function TabData({ index, title, data, allTabs }) {
           <Box>
             <Grid templateColumns="1fr 3fr">
               <Box mt={2} mr={5} gridColumn={1} justifySelf="right">
-                Kibana URL :
+                Kibana URL:
               </Box>
               <Input gridColumn={2} value={kibanaURL} onChange={(e) => setKibanaURL(e.target.value)} />
             </Grid>
@@ -123,9 +125,18 @@ export function TabData({ index, title, data, allTabs }) {
           <Box>
             <Grid templateColumns="1fr 3fr">
               <Box mt={2} mr={5} gridColumn={1} justifySelf="right">
-                Scroll Time :
+                Cycle Time:
               </Box>
-              <NumberInput gridColumn={2} min={1} value={scrollTime} onChange={setScrollTime} />
+              <NumberInput gridColumn={2} min={1} value={cycleTime} onChange={setCycleTime} />
+            </Grid>
+          </Box>
+
+          <Box>
+            <Grid templateColumns="1fr 3fr">
+              <Box mt={2} mr={5} gridColumn={1} justifySelf="right">
+                Dashboard Height:
+              </Box>
+              <Input gridColumn={2} placeholder="950px" value={frameHeight} onChange={(e) => setFrameHeight(e.target.value)} />
             </Grid>
           </Box>
         </Stack>

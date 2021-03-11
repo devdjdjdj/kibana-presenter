@@ -15,7 +15,7 @@ function getURL(url) {
 
 function getTimeQuery(time) {
   return (
-    '?embed=true&_g=(refreshInterval:(pause:!f,value:300000),time:(from:' +
+    '?embed=true&_g=(refreshInterval:(pause:!f,value:600000),time:(from:' +
     time.from +
     ',mode:' +
     time.mode +

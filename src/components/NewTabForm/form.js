@@ -15,7 +15,8 @@ import Router from 'next/router'
 export const Form = ({ onClose, tabData }) => {
   const [tabTitle, setTabTitle] = React.useState('')
   const [kibanaURL, setKibanaURL] = React.useState('')
-  const [scrollTime, setScrollTime] = React.useState(10)
+  const [frameHeight, setFrameHeight] = React.useState('');
+  const [cycleTime, setCycleTime] = React.useState(10)
   const submitDisabled = !(tabTitle.length > 0 && kibanaURL.length > 0)
 
   const handleSubmit = (e) => {
@@ -29,7 +30,8 @@ export const Form = ({ onClose, tabData }) => {
         title: tabTitle.trim(),
         data: {
           kibanaURL: kibanaURL.trim(),
-          scrollTime: scrollTime,
+          cycleTime: cycleTime,
+          frameHeight: frameHeight
         },
       }),
     }).then((response) => {
@@ -41,7 +43,8 @@ export const Form = ({ onClose, tabData }) => {
   const handleReset = () => {
     setTabTitle('')
     setKibanaURL('')
-    setScrollTime(10)
+    setFrameHeight('')
+    setCycleTime(10)
   }
 
   const invalidTitle = tabData.some((tab) => tab.title == tabTitle.trim())
@@ -72,16 +75,25 @@ export const Form = ({ onClose, tabData }) => {
             <FormHelperText id="kibanaURL-helper-text">Instructions to grab Kibana URL</FormHelperText>
           </FormControl>
           <FormControl>
-            <FormLabel htmlFor="kibanaURL">Scroll Time</FormLabel>
+            <FormLabel htmlFor="kibanaURL">Cycle Time</FormLabel>
             <NumberInput
-              id="scrollTime"
-              placeholder="Scroll Time"
-              value={scrollTime}
+              id="cycleTime"
+              placeholder="Cycle Time"
+              value={cycleTime}
               min={1}
-              onChange={setScrollTime}
+              onChange={setCycleTime}
               size="md"
             />
-            <FormHelperText id="scrollTime-helper-text">In Seconds</FormHelperText>
+            <FormHelperText id="cycleTime-helper-text">In Seconds</FormHelperText>
+          </FormControl>
+          <FormControl isRequired>
+            <FormLabel htmlFor="kibanaURL">Dashboard Height</FormLabel>
+            <Input
+              id="frameHeight"
+              placeholder="950px"
+              value={frameHeight}
+              onChange={(e) => setFrameHeight(e.target.value)}
+            />
           </FormControl>
         </Stack>
       </ModalBody>
